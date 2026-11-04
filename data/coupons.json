@@ -1,0 +1,51 @@
+[
+  {
+    "code": "WELCOME10",
+    "description": "Welcome New Student 10% Discount",
+    "type": "percentage",
+    "value": 10,
+    "applicableCourse": "all",
+    "maxUses": 500,
+    "usedCount": 24,
+    "expiresAt": null,
+    "active": true,
+    "createdAt": "2026-11-04T13:30:15.652Z"
+  },
+  {
+    "code": "SAVE200",
+    "description": "Flat ₹200 Off on Any Course or Bundle",
+    "type": "flat",
+    "value": 200,
+    "applicableCourse": "all",
+    "maxUses": 100,
+    "usedCount": 18,
+    "minOrderAmount": 900,
+    "expiresAt": null,
+    "active": true,
+    "createdAt": "2026-11-04T13:30:15.652Z"
+  },
+  {
+    "code": "SCIENCE50",
+    "description": "50% Off Flash Discount on Class 9 Science",
+    "type": "percentage",
+    "value": 50,
+    "applicableCourse": "science",
+    "maxUses": 50,
+    "usedCount": 7,
+    "expiresAt": null,
+    "active": true,
+    "createdAt": "2026-11-04T13:30:15.652Z"
+  },
+  {
+    "code": "FREE100",
+    "description": "100% Free Full Scholarship Waiver",
+    "type": "free",
+    "value": 100,
+    "applicableCourse": "all",
+    "maxUses": 20,
+    "usedCount": 2,
+    "expiresAt": null,
+    "active": true,
+    "createdAt": "2026-11-04T13:30:15.652Z"
+  }
+]
