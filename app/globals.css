@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+:root {
+  /* Paper / background tokens */
+  --paper: #EEF2F6;
+  --sheet: #FFFFFF;
+  --ink: #14223A;
+  --muted: #55657D;
+  --rule: #D2DBE6;
+  --grid: rgba(36,86,201,.075);
+
+  /* Subject colours */
+  --ap: #2456C9;        /* Math / AP blue */
+  --ap-soft: #DFE8FB;
+  --gp: #C16200;        /* Math / GP orange */
+  --gp-soft: #FCEAD2;
+  --sci: #0D9488;       /* Science teal */
+  --sci-soft: #CCFBF1;
+
+  /* Status */
+  --ok: #14794B;
+  --ok-soft: #DCF1E6;
+  --bad: #B3342C;
+  --bad-soft: #F8E0DE;
+
+  /* Accent */
+  --accent: #F97316;
+  --accent-soft: #FED7AA;
+
+  /* Hero */
+  --hero-bg: #14223A;
+  --hero-fg: #F2F6FB;
+  --hero-ap: #86A9FF;
+  --hero-gp: #F5AE4E;
+
+  /* Pro / premium */
+  --pro: #14223A;
+  --pro-ink: #F4B53F;
+  --gold: #E9A23B;
+
+  /* Shadow tokens */
+  --shadow-sm: 0 1px 2px rgba(20,34,58,.06), 0 2px 8px -4px rgba(20,34,58,.12);
+  --shadow-md: 0 1px 2px rgba(20,34,58,.06), 0 8px 22px -12px rgba(20,34,58,.22);
+  --shadow-lg: 0 1px 3px rgba(20,34,58,.08), 0 16px 40px -16px rgba(20,34,58,.32);
+
+  /* Glass */
+  --glass-border: rgba(255,255,255,0.18);
+  --glass-bg: rgba(255,255,255,0.08);
+
+  /* Border radius */
+  --r: 10px;
+  --r-lg: 16px;
+
+  /* Font families */
+  --display: "Recursive", ui-sans-serif, system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --math-font: "STIX Two Text", "Cambria Math", Cambria, "Times New Roman", serif;
+  --mono: "Recursive", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  color-scheme: light;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1520;
+    --sheet: #162030;
+    --ink: #E5ECF5;
+    --muted: #92A2B8;
+    --rule: #27364C;
+    --grid: rgba(110,155,255,.06);
+    --ap: #7AA2FF;
+    --ap-soft: #1D2D4E;
+    --gp: #F2A541;
+    --gp-soft: #3A2A14;
+    --sci: #2DD4BF;
+    --sci-soft: #134E4A;
+    --ok: #4CC38A;
+    --ok-soft: #163327;
+    --bad: #F07167;
+    --bad-soft: #3A1E1D;
+    --hero-bg: #1A2A45;
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-bg: rgba(255,255,255,0.04);
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  --paper: #0E1520;
+  --sheet: #162030;
+  --ink: #E5ECF5;
+  --muted: #92A2B8;
+  --rule: #27364C;
+  --grid: rgba(110,155,255,.06);
+  --ap: #7AA2FF;
+  --ap-soft: #1D2D4E;
+  --gp: #F2A541;
+  --gp-soft: #3A2A14;
+  --sci: #2DD4BF;
+  --sci-soft: #134E4A;
+  --ok: #4CC38A;
+  --ok-soft: #163327;
+  --bad: #F07167;
+  --bad-soft: #3A1E1D;
+  --hero-bg: #1A2A45;
+  --glass-border: rgba(255,255,255,0.10);
+  --glass-bg: rgba(255,255,255,0.04);
+  color-scheme: dark;
+}
+
+/* Base styles */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16.5px;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Grid paper background */
+body {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-color: var(--paper);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-variation-settings: "CASL" 0.55;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.math-font, .math-font i { font-family: var(--math-font); }
+.math-font { font-size: 1.08em; white-space: nowrap; }
+
+/* KaTeX overrides */
+.katex { font-size: 1.1em; }
+.katex-display { overflow-x: auto; overflow-y: hidden; }
+
+/* Focus styles */
+:focus-visible {
+  outline: 3px solid var(--ap);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Glass card utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Sheet (white card) */
+.sheet {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Selection */
+::selection { background: var(--ap-soft); color: var(--ink); }
+
+/* Link reset */
+a { color: inherit; text-decoration: none; }
+
+/* Button reset */
+button { font: inherit; cursor: pointer; }
+
+/* Number rendering */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Prose content */
+.prose p { margin: 0 0 0.8em; }
+.prose p:last-child { margin: 0; }
+.prose b { font-weight: 700; }
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(36,86,201,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(36,86,201,0); }
+  100% { box-shadow: 0 0 0 0 rgba(36,86,201,0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-delay { animation: float 4s ease-in-out 2s infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, var(--rule) 25%, var(--paper) 50%, var(--rule) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* KaTeX fonts included above via @import */

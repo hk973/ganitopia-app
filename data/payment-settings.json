@@ -1,0 +1,12 @@
+{
+  "mathPrice": 99900,
+  "sciencePrice": 99900,
+  "bundlePrice": 100,
+  "discountPct": 0,
+  "offerLabel": "",
+  "offerExpiry": null,
+  "freeLessonsPerChapter": 0,
+  "mode": "test",
+  "currency": "INR",
+  "updatedAt": "2026-11-04T13:17:30.641Z"
+}

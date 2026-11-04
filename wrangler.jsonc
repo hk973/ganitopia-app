@@ -1,0 +1,12 @@
+{
+  "name": "ganitopia",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": ".open-next",
+  "r2_buckets": [
+    {
+      "binding": "NEXT_CACHE_R2",
+      "bucket_name": "ganitopia-cache"
+    }
+  ]
+}
