@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import { getAdminDb, isAdminConfigured } from '@/lib/firebase/admin';
 import { verifySession } from '@/lib/firebase/session';
 import { getPendingOrder, recordPurchase } from '@/lib/settings/purchases';
+import { incrementCouponUsage } from '@/lib/settings/coupons';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
     }
     const uid = decoded.uid;
 
-    const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = await request.json();
+    const { razorpay_payment_id, razorpay_order_id, razorpay_signature, couponCode: passedCouponCode } = await request.json();
 
     if (!razorpay_payment_id || !razorpay_order_id || !razorpay_signature) {
       return NextResponse.json({ success: false, error: 'Missing payment data' }, { status: 400 });
@@ -36,11 +37,13 @@ export async function POST(request: NextRequest) {
     // 2. Resolve order & course details
     let course = 'bundle';
     let amount = 0;
+    let couponCode = passedCouponCode;
 
     const localOrder = getPendingOrder(razorpay_order_id);
     if (localOrder) {
       course = localOrder.course;
       amount = localOrder.amount;
+      if (localOrder.couponCode) couponCode = localOrder.couponCode;
     }
 
     if (isAdminConfigured()) {
@@ -57,6 +60,7 @@ export async function POST(request: NextRequest) {
           }
           if (paymentData.course) course = paymentData.course;
           if (paymentData.amount) amount = paymentData.amount;
+          if (paymentData.couponCode) couponCode = paymentData.couponCode;
 
           // Update payment record in Firestore
           await db.collection('payments').doc(razorpay_order_id).update({
@@ -79,6 +83,15 @@ export async function POST(request: NextRequest) {
       razorpayOrderId: razorpay_order_id,
       amount,
     });
+
+    // 4. Increment coupon usage if a coupon was used
+    if (couponCode) {
+      try {
+        await incrementCouponUsage(couponCode);
+      } catch (couponErr) {
+        console.warn('Could not increment coupon usage:', couponErr);
+      }
+    }
 
     return NextResponse.json({ success: true, course });
   } catch (error) {

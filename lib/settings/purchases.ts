@@ -26,6 +26,7 @@ interface PendingOrder {
   amount: number;
   status: string;
   createdAt: string;
+  couponCode?: string;
 }
 
 function readOrders(): Record<string, PendingOrder> {

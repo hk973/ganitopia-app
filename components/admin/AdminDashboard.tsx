@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   LayoutDashboard, Users, BarChart3, CreditCard, Settings,
-  BookOpen, Tag, Receipt, LogOut, TrendingUp, AlertCircle
+  BookOpen, Tag, Receipt, LogOut, TrendingUp, AlertCircle, Ticket
 } from 'lucide-react';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { useRouter } from 'next/navigation';
@@ -49,6 +49,7 @@ export function AdminDashboard({ kpis, adminName }: Props) {
     { id: 'students', label: 'Students', icon: Users, href: '/admin/students' },
     { id: 'payments', label: 'Payments', icon: CreditCard, href: '/admin/payments' },
     { id: 'pricing', label: 'Pricing & Offers', icon: Tag, href: '/admin/pricing' },
+    { id: 'coupons', label: 'Coupons & Discounts', icon: Ticket, href: '/admin/coupons' },
     { id: 'analytics', label: 'Analytics', icon: BarChart3, href: '/admin/analytics' },
     { id: 'exports', label: 'Reports', icon: Receipt },
     { id: 'settings', label: 'Settings', icon: Settings },
@@ -123,7 +124,7 @@ export function AdminDashboard({ kpis, adminName }: Props) {
         </div>
 
         {/* Quick actions */}
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link href="/admin/students">
             <GlassCard hover className="p-4">
               <Users className="w-6 h-6 mb-2" style={{ color: 'var(--ap)' }} />
@@ -143,6 +144,13 @@ export function AdminDashboard({ kpis, adminName }: Props) {
               <Tag className="w-6 h-6 mb-2" style={{ color: 'var(--gp)' }} />
               <div className="font-bold text-sm">Edit Pricing</div>
               <div className="text-xs text-[var(--muted)]">Update course prices and offers</div>
+            </GlassCard>
+          </Link>
+          <Link href="/admin/coupons">
+            <GlassCard hover className="p-4">
+              <Ticket className="w-6 h-6 mb-2 text-purple-500" />
+              <div className="font-bold text-sm">Coupons &amp; Discounts</div>
+              <div className="text-xs text-[var(--muted)]">Create %, Flat ₹ &amp; Free waivers</div>
             </GlassCard>
           </Link>
         </div>

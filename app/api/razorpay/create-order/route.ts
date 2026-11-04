@@ -4,57 +4,65 @@ import { getAdminDb, isAdminConfigured } from '@/lib/firebase/admin';
 import { verifySession } from '@/lib/firebase/session';
 import { getPricingSettings } from '@/lib/settings/pricing';
 import { savePendingOrder } from '@/lib/settings/purchases';
-
-function isValidCoupon(couponData: Record<string, any>): boolean {
-  if (!couponData.active) return false;
-  if (couponData.expiresAt && new Date(couponData.expiresAt) < new Date()) return false;
-  if (couponData.usedCount >= (couponData.maxUses ?? Infinity)) return false;
-  return true;
-}
-
-function applyDiscount(amount: number, discountPct: number): number {
-  return Math.round(amount * (1 - discountPct / 100));
-}
+import { validateCoupon } from '@/lib/settings/coupons';
 
 export async function POST(request: NextRequest) {
   try {
     // 1. Verify session cookie
     const sessionCookie = request.cookies.get('session')?.value;
     if (!sessionCookie) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized. Please log in.' }, { status: 401 });
     }
 
     const decoded = await verifySession(sessionCookie);
     if (!decoded || !decoded.uid) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized. Please log in.' }, { status: 401 });
     }
     const uid = decoded.uid;
 
     const { course, couponCode } = await request.json();
 
     if (!['math', 'science', 'bundle'].includes(course)) {
-      return NextResponse.json({ error: 'Invalid course' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid course selection.' }, { status: 400 });
     }
 
     // 2. Read live prices from persistent settings
     const settings = await getPricingSettings();
-    let amount = course === 'bundle'
-      ? settings.bundlePrice
-      : course === 'math'
-      ? settings.mathPrice
-      : settings.sciencePrice;
+    let amount =
+      course === 'bundle'
+        ? settings.bundlePrice
+        : course === 'math'
+        ? settings.mathPrice
+        : settings.sciencePrice;
+
+    let appliedCoupon: string | null = null;
 
     // 3. Apply coupon if provided
-    if (couponCode && isAdminConfigured()) {
-      try {
-        const db = getAdminDb();
-        const couponDoc = await db.collection('coupons').doc(couponCode.toUpperCase()).get();
-        if (couponDoc.exists && isValidCoupon(couponDoc.data()!)) {
-          amount = applyDiscount(amount, couponDoc.data()!.discountPct);
-        }
-      } catch (e) {
-        console.warn('Coupon verification warning:', e);
+    if (couponCode && typeof couponCode === 'string' && couponCode.trim()) {
+      const cleanCode = couponCode.trim().toUpperCase();
+      const validation = await validateCoupon(cleanCode, course, amount);
+
+      if (!validation.valid) {
+        return NextResponse.json({ error: validation.error || 'Invalid coupon code.' }, { status: 400 });
       }
+
+      if (validation.isFree) {
+        return NextResponse.json(
+          {
+            error: 'This coupon grants 100% free access! Claim it without payment.',
+            isFree: true,
+          },
+          { status: 400 }
+        );
+      }
+
+      amount = validation.discountedPrice;
+      appliedCoupon = cleanCode;
+    }
+
+    // Razorpay requires at least 100 paise (₹1)
+    if (amount < 100) {
+      return NextResponse.json({ error: 'Order amount too low for payment gateway.' }, { status: 400 });
     }
 
     // 4. Create Razorpay order
@@ -77,6 +85,7 @@ export async function POST(request: NextRequest) {
       amount,
       course,
       status: 'pending',
+      couponCode: appliedCoupon || undefined,
       createdAt: new Date().toISOString(),
     });
 
@@ -89,7 +98,7 @@ export async function POST(request: NextRequest) {
           course,
           status: 'pending',
           razorpayOrderId: order.id,
-          couponCode: couponCode || null,
+          couponCode: appliedCoupon || null,
           createdAt: new Date().toISOString(),
         });
       } catch (e) {
@@ -100,12 +109,12 @@ export async function POST(request: NextRequest) {
     // 6. Return only the safe info — NEVER return key_secret
     return NextResponse.json({
       orderId: order.id,
-      amount,
-      currency: 'INR',
+      amount: order.amount,
+      currency: order.currency,
       keyId: razorpayKeyId,
     });
   } catch (error) {
     console.error('Create order error:', error);
-    return NextResponse.json({ error: 'Failed to create order' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to create payment order.' }, { status: 500 });
   }
 }
