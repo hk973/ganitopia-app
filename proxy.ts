@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { hasCourseAccess } from '@/lib/settings/purchases';
 
 // ---------- paywall helpers ----------
 
@@ -44,18 +43,13 @@ async function checkAccess(req: NextRequest, course: 'math' | 'science'): Promis
   const sessionCookie = req.cookies.get('session')?.value;
   if (!sessionCookie) return false;
 
-  // 1. Direct local & firestore check if cookie is valid
+  // 1. Check if token is for admin (admins have full access)
   try {
     const parts = sessionCookie.split('.');
     if (parts.length === 3) {
       const payloadB64 = parts[1].replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(parts[1].length / 4) * 4, '=');
       const payload = JSON.parse(atob(payloadB64));
       if (payload.admin) return true;
-      const uid = payload.uid || payload.user_id || payload.sub;
-      if (uid) {
-        const directAccess = await hasCourseAccess(uid, course);
-        if (directAccess) return true;
-      }
     }
   } catch (err) {
     // Fall through to API check

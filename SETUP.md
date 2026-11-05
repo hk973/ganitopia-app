@@ -91,7 +91,7 @@ RAZORPAY_KEY_SECRET=your_secret_key
 ### Webhook Setup (for production)
 
 4. Razorpay Dashboard → Webhooks → **Add new webhook**
-5. URL: `https://your-domain.pages.dev/api/webhooks/razorpay`
+5. URL: `https://ganitopia.<your-subdomain>.workers.dev/api/webhooks/razorpay` (or your custom domain)
 6. Events: `payment.captured`, `payment.failed`
 7. Copy webhook secret → add to `.env.local`:
 
@@ -101,9 +101,30 @@ RAZORPAY_WEBHOOK_SECRET=your_webhook_secret
 
 ---
 
-## Step 5: Cloudflare Setup
+## Step 5: Cloudflare Setup (Workers Builds / GitHub Integration)
 
-1. Install Wrangler:
+This project uses **Cloudflare Workers** with Static Assets via `@opennextjs/cloudflare`.
+
+### Option A: Connect GitHub to Cloudflare Workers Builds (Recommended)
+
+1. Push your repository to GitHub.
+2. In Cloudflare Dashboard, go to **Compute (Workers & Pages)** → **Create** → **Workers** → **Connect to Git** (Workers Builds).
+3. Select your repository (`ganitopia-app`).
+4. Set Build configuration:
+   - **Framework preset**: None
+   - **Build command**: `npm run build:worker`
+   - **Deploy command**: `npx @opennextjs/cloudflare deploy` (or leave default)
+   - **Root directory**: `/`
+5. Create R2 bucket for ISR cache:
+   - Go to Cloudflare Dashboard → **R2** → **Create bucket** → Name it `ganitopia-cache`.
+6. Add Environment Variables in Cloudflare:
+   - In your Worker Settings → **Variables and Secrets**:
+     - `NODE_VERSION`: `22` (Required for Wrangler v4 and OpenNext)
+     - Add all variables listed in the Environment Variables table below.
+
+### Option B: Local CLI Deployment
+
+1. Install Wrangler and login:
 ```bash
 npm install -g wrangler
 wrangler login
@@ -114,9 +135,10 @@ wrangler login
 wrangler r2 bucket create ganitopia-cache
 ```
 
-3. Add environment variables in Cloudflare Dashboard:
-   - Workers & Pages → ganitopia → Settings → Variables
-   - Add all variables from `.env.local` (except `NEXT_PUBLIC_*` — those go into plaintext variables)
+3. Build and deploy:
+```bash
+npm run deploy
+```
 
 ---
 
@@ -129,12 +151,12 @@ npm run dev
 Opens on [http://localhost:3000](http://localhost:3000)
 
 **Test logins:**
-- Admin: `sagarvjoshi@gmail.com` / `1236` → `/admin-login`
+- Admin: `sagarvjoshi@gmail.com` / `1236` → `/login`
 - Student: Register at `/register` → `/dashboard`
 
 ---
 
-## Step 7: Build and Deploy to Cloudflare
+## Step 7: Build and Deploy to Cloudflare Workers
 
 ```bash
 npm run deploy
@@ -143,10 +165,10 @@ npm run deploy
 This runs:
 1. `next build` — SSG/ISR pre-renders all Math and Science pages
 2. `next-sitemap` — generates sitemap.xml and robots.txt
-3. `opennextjs-cloudflare build` — transforms for Workers runtime
-4. `wrangler pages deploy` — deploys to Cloudflare Pages
+3. `opennextjs-cloudflare build` — transforms Next.js output for Cloudflare Workers runtime
+4. `opennextjs-cloudflare deploy` — uploads assets and deploys worker to Cloudflare Workers
 
-Your app will be live at `https://ganitopia.pages.dev`
+Your app will be live at `https://ganitopia.<your-subdomain>.workers.dev` (or your custom domain).
 
 ---
 

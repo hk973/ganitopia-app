@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next-sitemap",
+    "build:worker": "opennextjs-cloudflare build",
     "start": "next start",
-    "preview": "opennextjs-cloudflare build && wrangler pages dev",
-    "deploy": "opennextjs-cloudflare build && wrangler pages deploy",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "setup-admin": "ts-node --project tsconfig.scripts.json scripts/setup-admin.ts"
   },
