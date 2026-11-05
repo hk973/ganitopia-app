@@ -112,12 +112,10 @@ This project uses **Cloudflare Workers** with Static Assets via `@opennextjs/clo
 3. Select your repository (`ganitopia-app`).
 4. Set Build configuration:
    - **Framework preset**: None
-   - **Build command**: `npm run build:worker`
+   - **Build command**: `npm run build`
    - **Deploy command**: `npx @opennextjs/cloudflare deploy` (or leave default)
    - **Root directory**: `/`
-5. Create R2 bucket for ISR cache:
-   - Go to Cloudflare Dashboard → **R2** → **Create bucket** → Name it `ganitopia-cache`.
-6. Add Environment Variables in Cloudflare:
+5. Add Environment Variables in Cloudflare:
    - In your Worker Settings → **Variables and Secrets**:
      - `NODE_VERSION`: `22` (Required for Wrangler v4 and OpenNext)
      - Add all variables listed in the Environment Variables table below.
@@ -130,12 +128,7 @@ npm install -g wrangler
 wrangler login
 ```
 
-2. Create R2 bucket (for ISR cache):
-```bash
-wrangler r2 bucket create ganitopia-cache
-```
-
-3. Build and deploy:
+2. Build and deploy:
 ```bash
 npm run deploy
 ```
