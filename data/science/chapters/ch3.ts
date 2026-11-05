@@ -16,33 +16,36 @@ const ch3: ScienceChapter = {
         context: "Place an onion bulb over a glass jar filled with water so its base touches the surface. Within 3 days, white roots sprout several centimeters. If you snip off the top 2-3 mm of the root tips with scissors, root growth halts permanently!",
         application: "Why does snipping the tip freeze root growth? Unlike animals where growth occurs uniformly across the entire body, plant growth is restricted to localized growth zones containing Meristematic Tissues. Once the apical meristem at the tip is severed, the active dividing cells are lost forever. Understanding meristems is central to agricultural plant tissue culture and bonsai cultivation."
       },
-      content: `In single-celled organisms like *Amoeba*, a single cell executes all vital life processes — digestion, gas exchange, excretion, and reproduction. In multicellular organisms with billions of cells, survival requires a sophisticated **division of labour**.
+      content: `In single-celled organisms like Amoeba, a single cell executes all vital life processes — digestion, gas exchange, excretion, and reproduction. In multicellular organisms with billions of cells, survival requires a sophisticated division of labour.
 
 ### Definition of a Tissue
-> **Tissue:** A group of cells that are similar in structure, origin, and/or work together to perform a specific biological function.
-* Example: Muscle cells contract to cause movement, nerve cells transmit electrical impulses, and vascular blood cells transport oxygen, hormones, and nutrients.
+A tissue is a cluster or group of structurally similar cells having a common origin that work in coordination to perform a specialized biological function.
+* Example in animals: Muscle cells contract and relax to execute movement, nerve cells carry electrochemical messages, and blood transports oxygen, hormones, and waste.
+* Example in plants: Vascular xylem vessels conduct water from roots to leaves, while phloem distributes photosynthetic food throughout the plant.
 
 ### Fundamental Differences Between Plant and Animal Tissues:
-1. **Mobility vs. Stationary Lifestyle:** Plants are rooted and stationary; they require immense mechanical and structural support. Consequently, a vast majority of plant tissues consist of **dead, supportive cells with thick walls** (like cork and sclerenchyma). Animals move actively in search of food and mates; their tissues are predominantly **living cells** requiring continuous oxygen and energy.
-2. **Growth Patterns:** Plant growth is **localized to specific growth zones (meristems)** throughout their life, whereas animal cell growth is **uniform and distributed**, lacking distinct dividing vs. non-dividing regions.
+1. Mobility vs. Stationary Existence: Plants are stationary and rooted. They need structural strength and mechanical rigidity to withstand strong winds and heavy rainfall. Hence, a vast proportion of mature plant tissue consists of supportive dead cells with thick walls (such as cork and sclerenchyma). Animals move continuously in search of food, shelter, and mates, requiring living tissues that consume high amounts of metabolic energy.
+2. Growth Patterns: Plant growth is localized to specific regions called meristems throughout their life cycle. Animal growth, by contrast, is uniform throughout the organism without distinct dividing and non-dividing zones.
 
 ### Plant Meristematic Tissues (Active Growth Zones)
-Meristematic tissues consist of continuously dividing, immature, undifferentiated cells.
-* **Cytological Characteristics:**
-  * Very active living cells with **dense cytoplasm** and thin cellulose cell walls.
-  * Prominent, large nuclei to direct rapid mitotic divisions.
-  * **Lack vacuoles:** Vacuoles store nutrient reserves and cell sap, which are unnecessary for cells whose sole purpose is rapid division. Large vacuoles would also physically obstruct rapid chromosome segregation!
+Meristematic tissues consist of undifferentiated, continuously dividing cells that generate all new plant organs.
+
+#### Characteristic Features of Meristematic Cells:
+* Highly active living cells with thin primary cellulose walls and very dense cytoplasm.
+* Large, prominent nuclei to orchestrate rapid cell division (mitosis).
+* Almost zero vacuoles: Vacuoles store sap and metabolic products, which dividing cells do not require. Large vacuoles would also physically obstruct rapid chromosome alignment and separation during mitosis.
+* Intercellular spaces are absent; cells are packed tightly together.
 
 #### The Three Types of Meristems (Based on Location):
-1. **Apical Meristem:**
-   * Located at the growing tips of stems and roots.
-   * **Function:** Responsible for primary vertical growth; increases the length (height) of root and shoot systems.
-2. **Lateral Meristem (Cambium):**
-   * Located along the lateral margins/circumference of stems and roots.
-   * **Function:** Responsible for secondary growth; increases the **girth (thickness/diameter)** of woody trunks and roots.
-3. **Intercalary Meristem:**
-   * Located at the base of leaves or internodes on twigs (e.g., in grasses and bamboo).
-   * **Function:** Promotes rapid elongation of internodes, enabling grass to regrow rapidly after being grazed by herbivores!`,
+1. Apical Meristem:
+   * Location: At the growing tips of roots and stems.
+   * Function: Drives primary vertical growth, increasing the height (length) of the shoot and depth of roots.
+2. Lateral Meristem (Cambium):
+   * Location: Along the lateral sides/circumference of stems and roots.
+   * Function: Drives secondary growth, increasing the girth, thickness, and diameter of woody stems and roots.
+3. Intercalary Meristem:
+   * Location: At the base of leaves or internodes on stems (common in grasses, bamboo, and mint).
+   * Function: Causes elongation of internodes. This enables grazed lawn grass to regrow rapidly after herbivores eat the upper blades!`,
       keyConcepts: [
         { term: "Tissue", definition: "A group of structurally similar cells organized to perform a specialized physiological function." },
         { term: "Division of Labour", definition: "Specialization of different cell groups/tissues to execute specific biological tasks efficiently." },
@@ -88,9 +91,68 @@ Meristematic tissues consist of continuously dividing, immature, undifferentiate
         "Remember: Apical = Length; Lateral = Girth (thickness); Intercalary = Internodal length."
       ],
       questions: [
-        { id: "sc3q1", type: "mcq", q: "Girth of stem increases due to the activity of:", options: ["Apical meristem", "Lateral meristem (cambium)", "Intercalary meristem", "Vertical parenchyma"], correctOption: 1, hint: "Responsible for secondary thickness." },
-        { id: "sc3q2", type: "short", q: "Which meristem allows grazed lawn grasses to rapidly regenerate their leaves?", answer: "Intercalary meristem", hint: "Found at internode bases." },
-        { id: "sc3q3", type: "mcq", q: "Meristematic cells possess:", options: ["Thick walls and large vacuoles", "Thin cellulose walls and no vacuoles", "Dead protoplasm", "Lignified cell corners"], correctOption: 1, hint: "Think about cells optimized for division." }
+        {
+          id: "sc3q1",
+          type: "mcq",
+          q: "Girth (diameter) of a plant stem increases primarily due to the activity of:",
+          options: ["Apical meristem", "Lateral meristem (cambium)", "Intercalary meristem", "Vertical parenchyma"],
+          correctOption: 1,
+          hint: "Think about secondary growth that thickens tree trunks.",
+          answer: "Lateral meristem (vascular and cork cambium) runs along the perimeter of stems and roots, producing secondary layers that increase the girth (thickness)."
+        },
+        {
+          id: "sc3q2",
+          type: "short",
+          q: "Which specific meristematic tissue allows grazed lawn grass to rapidly regenerate its elongated leaves?",
+          answer: "Intercalary meristem located at the base of internodes and leaf blades.",
+          hint: "Found at internode bases in monocots like grasses."
+        },
+        {
+          id: "sc3q3",
+          type: "mcq",
+          q: "Which of the following cellular features is universally characteristic of plant meristematic cells?",
+          options: ["Thick lignified walls and large central vacuoles", "Thin primary cellulose walls, dense cytoplasm, and lack of vacuoles", "Dead protoplasm with empty lumen", "Pectocellulose thickening at cell corners"],
+          correctOption: 1,
+          hint: "Cells designed exclusively for rapid mitotic division.",
+          answer: "Meristematic cells have thin cellulose walls, dense cytoplasm, prominent nuclei, and lack vacuoles because they do not store food and must divide rapidly."
+        },
+        {
+          id: "sc3q4",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): Snipping the tip of an onion root stops its growth completely.\nReason (R): Apical meristem responsible for root elongation is located only at the root apex.",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "Apical meristem drives primary length elongation.",
+          answer: "Both Assertion and Reason are true. The apical meristem is strictly localized at the apex. Cutting the tip removes all dividing cells, freezing root growth permanently."
+        },
+        {
+          id: "sc3q5",
+          type: "short",
+          q: "State two reasons why plant tissues have a much higher percentage of dead cells compared to animal tissues.",
+          answer: "1. Plants are sedentary and need immense mechanical support to stand upright; dead cells provide rigidity with low maintenance. 2. Dead supportive cells (like sclerenchyma and xylem vessels) do not require energy or metabolic nourishment.",
+          hint: "Think about stationary lifestyle vs active locomotion."
+        },
+        {
+          id: "sc3q6",
+          type: "mcq",
+          q: "A nail is hammered into the trunk of a 4-meter tall tree at a height of 1 meter from the ground. After 3 years, the tree has grown to 7 meters. At what height from the ground will the nail be found?",
+          options: ["1 meter", "3 meters", "4 meters", "7 meters"],
+          correctOption: 0,
+          hint: "Apical meristem adds new tissue only at the top of the shoot.",
+          answer: "The nail will remain at exactly 1 meter from the ground. Primary vertical elongation occurs exclusively at the apical meristem at the apex; the trunk beneath does not elongate vertically, it only expands in girth."
+        },
+        {
+          id: "sc3q7",
+          type: "short",
+          q: "Why do meristematic cells lack large vacuoles? Give two scientific reasons.",
+          answer: "(1) Meristematic cells divide actively and continuously, hence they do not store food nutrients or waste products. (2) Dense, unvacuolated cytoplasm provides the physical space and mobility needed for mitotic chromosome segregation.",
+          hint: "Consider cell function and mitotic machinery."
+        }
       ]
     },
     {
@@ -101,53 +163,50 @@ Meristematic tissues consist of continuously dividing, immature, undifferentiate
         context: "Try tearing open the outer husk of a brown coconut with bare hands — it feels like pulling steel cables! Meanwhile, inside a giant 115-meter California Redwood tree, hundreds of gallons of water climb straight up against gravity daily without any mechanical electrical pumps.",
         application: "The tough coconut husk is made of Sclerenchyma fibers cemented with lignin, one of the hardest natural polymers known to science. The tree's silent 100-meter water pipeline is the Xylem, composed of dead, hollow, interconnected tracheids and vessels operating via transpiration pull. Plant permanent tissues engineer miracles of strength and fluid dynamics."
       },
-      content: `When meristematic cells take up a permanent shape, size, and function and lose the ability to divide, the process is termed **differentiation**. This produces **Permanent Tissues**.
+      content: `When meristematic cells take up a permanent shape, size, and function and lose the ability to divide, the process is termed differentiation. This gives rise to permanent tissues.
 
-### I. Simple Permanent Tissues (Single Cell Type)
-Composed of structurally identical cells performing a uniform function:
+### I. Simple Permanent Tissues (Composed of One Cell Type)
+1. Parenchyma:
+   * Living, unspecialized cells with thin primary cellulose walls and prominent intercellular spaces.
+   * Function: General packaging tissue; stores food and nutrients in roots, stems, and fruits.
+   * Specialized Variations:
+     * Chlorenchyma: Parenchyma containing chlorophyll; performs photosynthesis (found in green leaf mesophyll).
+     * Aerenchyma: Parenchyma with large internal air cavities, providing buoyancy that allows aquatic plants (hydrilla, lotus, water hyacinth) to float.
 
-1. **Parenchyma:**
-   * Living, unspecialized cells with thin primary cellulose walls and **prominent intercellular spaces**.
-   * **Function:** General packaging tissue; stores food and nutrients.
-   * **Specialized Variants:**
-     * **Chlorenchyma:** Parenchyma cells containing chlorophyll that execute **photosynthesis** (found in leaf mesophyll).
-     * **Aerenchyma:** Parenchyma containing large air cavities, found in aquatic plants (e.g., water hyacinth, lotus) that provide **buoyancy** to float.
+2. Collenchyma:
+   * Living, elongated cells with irregular cellulose and pectin thickenings at cell corners.
+   * Very little or no intercellular spaces.
+   * Function: Provides mechanical flexibility and tensile elasticity. It allows tender plant parts (petioles of leaves, tendrils of climbers) to bend vigorously under storm winds without breaking.
 
-2. **Collenchyma:**
-   * Living, elongated cells with **irregular wall thickenings at corners** made of cellulose, hemicellulose, and pectin.
-   * Intercellular spaces are very small or absent.
-   * **Function:** Provides **tensile flexibility and mechanical elasticity**. Allows delicate plant parts (leaf stalks/petioles, tendrils, young stems) to bend in gale winds without snapping!
+3. Sclerenchyma:
+   * Dead cells at maturity with narrow lumens and uniformly thickened walls impregnated with Lignin (a hard, waterproof chemical cement).
+   * Zero intercellular spaces; cells are tightly cemented together.
+   * Function: Supreme hardness, stiffness, and mechanical protection.
+   * Locations: Coconut husk (coir), jute and flax fibers, hard nutshells of walnuts and almonds, seed coats, and the gritty stone cells (sclereids) in pear and guava pulp.
 
-3. **Sclerenchyma:**
-   * **Dead cells** at maturity with long, narrow, tapered shapes.
-   * Cell walls are heavily and uniformly thickened with **Lignin** (a rigid chemical cement that acts as waterproof mortar).
-   * There are **zero intercellular spaces**, and the internal cell cavity (lumen) is extremely narrow.
-   * **Function:** Provides supreme mechanical hardness, rigidity, and protection.
-   * **Occurrences:** Husk of coconut (coir), jute fibers, hard shells of walnuts and almonds, seed coat of legumes, and the gritty stone cells in pear and guava pulp.
-
-4. **Epidermis & Protective Cork:**
-   * **Epidermis:** Single outermost protective cell layer covered with a waxy, water-resistant layer called **Cutin**, preventing moisture loss, fungal attack, and mechanical injury.
-   * **Stomata:** Microscopic pores in the leaf epidermis flanked by two kidney-shaped **guard cells**. Guard cells regulate **transpiration** (water vapor loss) and atmospheric gas exchange ($\\text{CO}_2$ in, $\\text{O}_2$ out).
-   * **Cork (Bark):** As woody stems age, outer secondary meristems produce thick bark. Cork cells are dead, compactly arranged without intercellular spaces, and impregnated with **Suberin** — a chemical that makes bark impervious to gases and water!
+4. Protective Tissues:
+   * Epidermis: Outermost layer covered by a waxy waterproof layer called Cutin, preventing water loss, pathogen entry, and mechanical damage.
+   * Stomata: Tiny kidney-shaped guard-cell regulated pores for gas exchange and transpiration.
+   * Cork (Bark): Peripheral dead secondary tissue packed tightly without intercellular spaces and lined with Suberin, making it completely impermeable to water and gases.
 
 ---
 
 ### II. Complex Permanent Tissues (Vascular / Conducting Tissues)
-Composed of more than one type of cell working in coordination:
+Complex tissues consist of more than one cell type functioning together in harmony:
 
-#### 1. Xylem (Water-Conducting Pipeline)
-Transports water and dissolved minerals **unidirectionally upward** from roots to leaves:
-* **Tracheids:** Elongated dead tubular cells with tapering ends and lignified pitted walls.
-* **Vessels:** Long continuous cylindrical tubes formed by vertical columns of dead cells with dissolved end walls.
-* **Xylem Parenchyma:** The **only living component** of xylem! Stores food and assists in sideways radial conduction of water.
-* **Xylem Sclerenchyma (Fibres):** Dead, supportive fibers providing mechanical strength.
+#### 1. Xylem (Water-Conducting Vascular Tissue)
+Transports water and dissolved minerals unidirectionally from roots upward to stems and leaves:
+* Tracheids: Elongated dead tube-like cells with tapering ends and lignified pitted walls.
+* Vessels: Long cylindrical continuous tubes formed by end-to-end fusion of dead cells.
+* Xylem Parenchyma: The ONLY living component of xylem; stores starch and aids in radial water conduction.
+* Xylem Fibres: Dead lignified fibers that provide mechanical support to the plant stem.
 
-#### 2. Phloem (Food-Translocating Plumbing)
-Transports organic food (sucrose and amino acids) **bidirectionally** from photosynthetic leaves to storage organs and growing tips (**Translocation**):
-* **Sieve Tubes:** Tubular cells with perforated end walls called **sieve plates**. Remarkably, mature sieve tube elements have living cytoplasm and cell membrane, but **lack a nucleus and central vacuole**!
-* **Companion Cells:** Specialized living parenchymatous cells intimately connected to sieve tubes via plasmodesmata. The companion cell's active nucleus directs the metabolic activities of the enucleate sieve tube!
-* **Phloem Parenchyma:** Living cells that store food resins and latex.
-* **Phloem Fibres (Bast Fibres):** The **only dead component** of phloem! Possess immense tensile strength (e.g., commercial jute, hemp, and flax fibers used to weave ropes and burlap sacks).`,
+#### 2. Phloem (Food-Translocating Vascular Tissue)
+Transports soluble organic sugars (sucrose) and amino acids bidirectionally from source (leaves) to sink (roots, fruits, buds):
+* Sieve Tubes: Tubular conducting columns with perforated end plates called sieve plates. Living cytoplasm, but mature cells lack a nucleus!
+* Companion Cells: Nucleated living cells that control and energize the transport through adjacent sieve tubes.
+* Phloem Parenchyma: Living storage cells.
+* Phloem Fibres (Bast Fibres): The ONLY dead component of phloem; harvested commercially as jute, hemp, and flax for making ropes.`,
       keyConcepts: [
         { term: "Differentiation", definition: "The developmental process by which meristematic cells take up a permanent shape, size, and specialized function." },
         { term: "Parenchyma", definition: "Living, thin-walled plant packaging tissue with large intercellular spaces; includes chlorenchyma and aerenchyma." },
@@ -191,9 +250,70 @@ Transports organic food (sucrose and amino acids) **bidirectionally** from photo
         "Suberin vs Cutin: Cutin is the waxy waterproof coating on leaf epidermis; Suberin is the impervious chemical found in the walls of cork/bark."
       ],
       questions: [
-        { id: "sc3q4", type: "mcq", q: "The flexibility in plants is due to which tissue?", options: ["Collenchyma", "Sclerenchyma", "Parenchyma", "Chlorenchyma"], correctOption: 0, hint: "Living cells with thickened corners." },
-        { id: "sc3q5", type: "mcq", q: "Which of the following is the only dead component in phloem tissue?", options: ["Sieve tubes", "Companion cells", "Phloem parenchyma", "Phloem fibres"], correctOption: 3, hint: "Used commercially as jute and flax." },
-        { id: "sc3q6", type: "short", q: "What chemical substance is deposited in the walls of cork cells that makes them impervious to gases and water?", answer: "Suberin", hint: "Found in tree bark." }
+        {
+          id: "sc3q8",
+          type: "mcq",
+          q: "Flexibility and bending without breaking in young stems and leaf stalks is provided by:",
+          options: ["Collenchyma", "Sclerenchyma", "Parenchyma", "Chlorenchyma"],
+          correctOption: 0,
+          hint: "Living tissue with cell walls thickened at the corners.",
+          answer: "Collenchyma provides mechanical flexibility and tensile elasticity to plant organs, allowing them to bend under wind stress without snapping."
+        },
+        {
+          id: "sc3q9",
+          type: "mcq",
+          q: "Which of the following is the ONLY dead component in phloem tissue?",
+          options: ["Sieve tubes", "Companion cells", "Phloem parenchyma", "Phloem fibres (bast fibres)"],
+          correctOption: 3,
+          hint: "These fibers are harvested commercially to make jute burlap sacks and ropes.",
+          answer: "In phloem, sieve tubes, companion cells, and phloem parenchyma are living. Phloem fibres (sclerenchymatous bast fibres) are the only dead elements."
+        },
+        {
+          id: "sc3q10",
+          type: "short",
+          q: "What organic chemical is deposited in the walls of cork cells that renders them impervious to gases and water?",
+          answer: "Suberin",
+          hint: "Chemical found in tree bark protective layers."
+        },
+        {
+          id: "sc3q11",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): Sclerenchymatous tissues are dead and provide immense structural support to plants.\nReason (R): Their cell walls are uniformly thickened with lignin cement and lack intercellular spaces.",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "Lignin acts as an impermeable structural cement.",
+          answer: "Both Assertion and Reason are true. Sclerenchyma cells deposit heavy layers of lignin on their walls, obliterating the lumen and cutting off metabolic exchange, which causes cellular death and gives maximum hardness."
+        },
+        {
+          id: "sc3q12",
+          type: "mcq",
+          q: "Which plant tissue has large air spaces that allow aquatic plants like water lilies to float on water?",
+          options: ["Aerenchyma", "Chlorenchyma", "Collenchyma", "Sclerenchyma"],
+          correctOption: 0,
+          hint: "A modified form of parenchyma with buoyancy chambers.",
+          answer: "Aerenchyma is specialized parenchyma containing spacious air cavities that store gases and provide buoyancy to aquatic plants."
+        },
+        {
+          id: "sc3q13",
+          type: "short",
+          q: "Name the only living cell component of xylem vascular tissue.",
+          answer: "Xylem parenchyma",
+          hint: "Responsible for food storage and radial water movement in xylem."
+        },
+        {
+          id: "sc3q14",
+          type: "mcq",
+          q: "In phloem, mature sieve tube cells lack a nucleus. Which companion structure directs their metabolic activities?",
+          options: ["Companion cells via plasmodesmata", "Xylem vessels", "Phloem sclerenchyma fibres", "Stomatal guard cells"],
+          correctOption: 0,
+          hint: "Specialized sister cells with dense cytoplasm and an active nucleus.",
+          answer: "Each sieve tube element is physically and functionally coupled to an adjacent companion cell via plasmodesmata, allowing the companion cell's nucleus to control both cells."
+        }
       ]
     },
     {
@@ -207,39 +327,38 @@ Transports organic food (sucrose and amino acids) **bidirectionally** from photo
       content: `Animal bodies are organized into four primary tissue classes:
 
 ### 1. Epithelial Tissue (Covering & Protective Sheets)
-Forms the continuous protective barrier covering body surfaces and lining internal organs and cavities. Cells are tightly packed with virtually **no intercellular spaces** and rest on a non-cellular **extracellular basement membrane**.
-* **Simple Squamous Epithelium:** Single layer of ultra-thin, flat, tile-like cells. Found where transport of substances occurs across a permeable barrier: lining of blood vessels (endothelium) and lung alveoli.
-* **Stratified Squamous Epithelium:** Arranged in multiple stacked layers to prevent wear and tear. Found in the outer epidermis of human skin.
-* **Columnar Epithelium:** Tall, pillar-like cells facilitating secretion and absorption. Found in the inner mucosal lining of stomach and intestine.
-  * **Ciliated Columnar Epithelium:** Cells bear hair-like **cilia** on their outer surfaces that beat rhythmically to move mucus forward (lining the respiratory tract and fallopian tubes).
-* **Cuboidal Epithelium:** Cube-shaped cells providing mechanical support. Forms the lining of kidney tubules and ducts of salivary glands.
-* **Glandular Epithelium:** Epithelial tissue folded inward to form multicellular glands that secrete enzymes, saliva, or hormones.
+Forms the continuous protective barrier covering body surfaces and lining internal organs and cavities. Cells are tightly packed with virtually no intercellular spaces and rest on an extracellular basement membrane:
+* Simple Squamous Epithelium: Extremely thin, flat tile-like cells forming a delicate permeable lining. Found in lung alveoli (gas exchange) and blood capillary endothelium.
+* Stratified Squamous Epithelium: Arranged in multiple stacked layers to prevent wear and tear. Forms the outer epidermal skin layer.
+* Columnar Epithelium: Tall, pillar-like cells facilitating secretion and absorption. Lines the stomach and intestinal mucosa.
+* Ciliated Columnar Epithelium: Possesses rhythmic hair-like cilia on outer surfaces to sweep mucus and trapped particles forward. Lines the respiratory tract and oviducts.
+* Cuboidal Epithelium: Cube-shaped cells providing mechanical strength. Lines kidney tubules and salivary gland ducts.
+* Glandular Epithelium: Epithelial tissue folded inward to form specialized multicellular glands that secrete enzymes, saliva, sweat, or hormones.
 
 ### 2. Connective Tissue (Binding, Cushioning & Support)
-Cells are loosely arranged and suspended within an extensive **intercellular matrix** (fluid, gelatinous, or solid rigid).
-* **Blood (Vascular Tissue):** Fluid connective tissue consisting of liquid **plasma** (containing proteins, salts, glucose, and hormones) in which Red Blood Cells (RBCs/erythrocytes, transport $\\text{O}_2$), White Blood Cells (WBCs/leukocytes, immune defense), and Platelets (blood clotting) are suspended.
-* **Bone:** Rigid, hard skeletal tissue embedded in a matrix rich in **Calcium and Phosphorus compounds**. Houses osteocyte cells; provides the structural framework supporting soft organs.
-* **Cartilage:** Flexible connective tissue with widely spaced cells (chondrocytes) embedded in a matrix of proteins and sugars. Smoothens bone surfaces at joints; present in nose tip, ear pinna, trachea rings, and larynx.
-* **Ligament vs. Tendon:**
-  * **Ligament:** Connects **Bone to Bone**. Highly elastic, considerable strength, very little matrix.
-  * **Tendon:** Connects **Muscle to Bone**. Cord-like, tough fibrous tissue with great tensile strength but limited flexibility.
-* **Areolar Tissue:** Packaging tissue found between skin and underlying muscles, surrounding blood vessels and nerves. Fills internal spaces and assists in tissue repair.
-* **Adipose Tissue:** Specialized fat-storage tissue located beneath the skin and around vital organs (kidneys, heart). Cells are engorged with fat droplets; functions as an effective **thermal insulator**.
+Cells are loosely arranged and embedded within an extensive extracellular matrix:
+* Blood (Fluid Connective Tissue): Fluid plasma carrying Red Blood Cells (RBCs, carry oxygen), White Blood Cells (WBCs, immune defense), and Platelets (blood clotting).
+* Bone (Skeletal Tissue): Hard, rigid matrix rich in Calcium and Phosphorus compounds housing living osteocytes. Forms the skeletal framework.
+* Cartilage: Elastic connective tissue with cells (chondrocytes) widely spaced in a solid protein-sugar matrix. Smoothens bone joints; found in nose tip, ear pinna, trachea rings, and larynx.
+* Ligament vs Tendon:
+  * Ligament: Connects Bone to Bone. Highly elastic, strong, with minimal matrix.
+  * Tendon: Connects Muscle to Bone. Cord-like, tough fibrous collagen with high tensile strength and limited elasticity.
+* Areolar Tissue: Loose packaging tissue between skin and muscles, around blood vessels and nerves; repairs tissue damage.
+* Adipose Tissue: Fat-storing tissue under the skin and around internal organs (kidneys, heart); serves as a vital thermal insulator.
 
 ### 3. Muscular Tissue (Contractile Movement)
-Composed of elongated muscle fibers containing specialized **contractile proteins (actin and myosin)** that contract and relax to generate physical motion.
-* **Skeletal / Striated Muscle:** Attached to bones; under conscious voluntary control. Long, cylindrical, **unbranched, multinucleate** fibers with conspicuous alternate light and dark cross-striations.
-* **Smooth / Unstriated Muscle:** Found in involuntary internal organs (alimentary canal, blood vessel walls, iris of eye, bronchi). Long, **spindle-shaped (pointed tapered ends), uninucleate**, lacking cross-striations.
-* **Cardiac Muscle:** Exclusively found in the walls of the heart. Involuntary, **cylindrical, branched, uninucleate** fibers with faint striations. Contracts rhythmically and untiringly throughout life!
+Elongated muscle fibers containing contractile proteins (actin and myosin) that contract and relax to generate movement:
+* Striated (Skeletal) Muscle: Attached to skeleton; voluntary control. Long, cylindrical, unbranched, multinucleate with alternating dark and light cross-striations.
+* Smooth (Unstriated) Muscle: Found in walls of hollow internal visceral organs (digestive gut, blood vessels, iris, bronchi). Involuntary, spindle-shaped with tapered ends, uninucleate, lacking striations.
+* Cardiac Muscle: Exclusively in heart walls. Involuntary, cylindrical, branched, uninucleate with faint striations and intercalated discs. Contracts rhythmically and untiringly throughout life.
 
 ### 4. Nervous Tissue (Signal Transmission & Neural Circuits)
-Specialized to perceive environmental stimuli and transmit rapid electrical nerve impulses across the body.
-* Composed of individual functional units termed **Neurons (Nerve Cells)**.
-* **Anatomy of a Neuron:**
-  1. **Cell Body (Cyton):** Contains the central nucleus and neuroplasm.
-  2. **Dendrites:** Short, highly branched fiber projections that receive incoming chemical signals from neighboring neurons.
-  3. **Axon:** A single, elongated fiber (can extend over 1 meter long!) that conducts electrical impulses away from the cell body toward terminal nerve endings.
-* A collection of nerve fibers bundled together by connective tissue forms a **Nerve**.`,
+Specialized to receive stimuli and conduct electrical impulses across the body.
+* Basic Functional Unit: The Neuron (Nerve Cell).
+* Structure of a Neuron:
+  1. Cell Body (Cyton): Contains the nucleus and neuroplasm.
+  2. Dendrites: Branching short projections receiving incoming chemical signals.
+  3. Axon: Long single fiber (up to 1 meter long) conducting nerve impulses away from the cell body toward terminal synapses.`,
       keyConcepts: [
         { term: "Epithelial Tissue", definition: "Tightly packed cellular sheets forming protective barriers and internal linings resting on a basement membrane." },
         { term: "Connective Tissue", definition: "Loosely spaced cells embedded within an extracellular matrix (fluid, gelatinous, or rigid)." },
@@ -284,9 +403,70 @@ Specialized to perceive environmental stimuli and transmit rapid electrical nerv
         "Remember that human Red Blood Cells (RBCs) lack a nucleus at maturity to maximize hemoglobin storage capacity for oxygen transport."
       ],
       questions: [
-        { id: "sc3q7", type: "mcq", q: "Which connective tissue connects two bones together?", options: ["Tendon", "Ligament", "Cartilage", "Areolar tissue"], correctOption: 1, hint: "Remember BLB (Bone-Ligament-Bone)." },
-        { id: "sc3q8", type: "mcq", q: "Spindle-shaped, uninucleate, involuntary muscle cells are found in:", options: ["Limbs", "Wall of the stomach", "Heart wall", "Tongue"], correctOption: 1, hint: "Smooth muscle in visceral digestive organs." },
-        { id: "sc3q9", type: "short", q: "Name the part of the neuron that carries electrical impulses AWAY from the cell body.", answer: "Axon", hint: "Single long fiber." }
+        {
+          id: "sc3q15",
+          type: "mcq",
+          q: "Which specific connective tissue binds two skeletal bones together at a joint?",
+          options: ["Tendon", "Ligament", "Areolar tissue", "Adipose tissue"],
+          correctOption: 1,
+          hint: "Remember the mnemonic BLB (Bone-Ligament-Bone).",
+          answer: "Ligaments are elastic connective tissues with high strength that link bones to other bones, stabilizing skeletal joints."
+        },
+        {
+          id: "sc3q16",
+          type: "mcq",
+          q: "Spindle-shaped cells with pointed ends, a single central nucleus, and involuntary control characterize which tissue?",
+          options: ["Skeletal striated muscle", "Smooth unstriated muscle", "Cardiac muscle", "Nervous tissue"],
+          correctOption: 1,
+          hint: "Found in walls of digestive organs and blood vessels.",
+          answer: "Smooth muscle fibers are unstriated, spindle-shaped (fusiform), uninucleate, and contract involuntarily."
+        },
+        {
+          id: "sc3q17",
+          type: "short",
+          q: "Name the long, single cytoplasmic extension of a neuron that conducts electrical impulses AWAY from the cell body.",
+          answer: "Axon",
+          hint: "Carries signals to synapses and terminal buttons."
+        },
+        {
+          id: "sc3q18",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): Cardiac muscle fibers do not experience fatigue throughout life.\nReason (R): Cardiac muscles are branched, uninucleate, and possess abundant mitochondria with constant rhythmic contraction.",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "The heart pumps continuously without lactic acid buildup.",
+          answer: "Both Assertion and Reason are true. The branched structure, intercalated electrical discs, and continuous aerobic ATP supply allow cardiac muscles to contract tirelessly without fatigue."
+        },
+        {
+          id: "sc3q19",
+          type: "mcq",
+          q: "Which epithelial tissue lines the alveoli of human lungs to facilitate rapid diffusion of oxygen and carbon dioxide?",
+          options: ["Stratified squamous epithelium", "Simple squamous epithelium", "Ciliated columnar epithelium", "Cuboidal epithelium"],
+          correctOption: 1,
+          hint: "Extremely thin, single-layered flat cells.",
+          answer: "Simple squamous epithelium consists of extremely thin, delicate, flat cells that form a permeable barrier ideal for rapid respiratory gas diffusion."
+        },
+        {
+          id: "sc3q20",
+          type: "short",
+          q: "Which mineral salts constitute the rigid intercellular matrix of human bone tissue?",
+          answer: "Calcium and Phosphorus compounds (primarily calcium phosphate and carbonates).",
+          hint: "Provides bone hardness."
+        },
+        {
+          id: "sc3q21",
+          type: "mcq",
+          q: "Fat-storing cells containing large lipid globules that act as an insulator against heat loss are found in which tissue?",
+          options: ["Areolar tissue", "Adipose tissue", "Cartilage", "Tendon"],
+          correctOption: 1,
+          hint: "Located beneath the skin and around kidneys.",
+          answer: "Adipose tissue stores fats inside specialized adipocytes beneath the skin and acts as a thermal insulator preventing heat loss."
+        }
       ]
     }
   ],
@@ -302,9 +482,59 @@ Specialized to perceive environmental stimuli and transmit rapid electrical nerv
     "Nervous tissue: Neurons with cyton, dendrites, and an elongated axon transmitting nerve impulses."
   ],
   ncertExercises: [
-    { id: "sc3e1", type: "short", q: "Name the tissue responsible for movement in our body.", answer: "Muscular tissue" },
-    { id: "sc3e2", type: "short", q: "What does a neuron look like?", answer: "A neuron resembles a miniature tree with a central cell body (cyton) containing a nucleus, branching dendrites receiving signals, and a single long axon carrying impulses away." },
-    { id: "sc3e3", type: "long", q: "Differentiate between striated, unstriated, and cardiac muscles on the basis of their structure and site/location in the body." }
+    {
+      id: "sc3e1",
+      type: "short",
+      q: "Name the tissue responsible for physical movement in the animal body.",
+      answer: "Muscular tissue containing contractile proteins (actin and myosin).",
+      hint: "Specialized cells that contract and relax."
+    },
+    {
+      id: "sc3e2",
+      type: "short",
+      q: "Describe the structural features of a neuron (nerve cell) and its role.",
+      answer: "A neuron consists of three main parts: (1) Cell body (cyton) containing a nucleus and cytoplasm, (2) Dendrites, which are short branched extensions receiving nerve impulses, and (3) Axon, a long single extension conducting electrical impulses away to synapses.",
+      hint: "Think about the specialized cells of the nervous system."
+    },
+    {
+      id: "sc3e3",
+      type: "short",
+      q: "Differentiate between tendon and ligament on the basis of their elasticity, matrix, and connection.",
+      answer: "A tendon connects muscle to bone, is made of tough collagenous fibers with high tensile strength and limited elasticity, and has a moderate matrix. A ligament connects bone to bone, is highly elastic and flexible, and contains very little matrix.",
+      hint: "Use the mnemonics MTB (Muscle-Tendon-Bone) and BLB (Bone-Ligament-Bone)."
+    },
+    {
+      id: "sc3e4",
+      type: "mcq",
+      q: "Which element of xylem tissue is living and stores starch reserves?",
+      options: ["Xylem vessels", "Tracheids", "Xylem parenchyma", "Xylem fibres"],
+      correctOption: 2,
+      hint: "Parenchyma cells in plants are universally living.",
+      answer: "Xylem parenchyma is the only living component of xylem tissue; it stores food reserves and assists in the lateral sideways transport of water."
+    },
+    {
+      id: "sc3e5",
+      type: "short",
+      q: "Why is blood considered a connective tissue despite being a liquid?",
+      answer: "Blood connects all body systems by transporting nutrients, respiratory gases, hormones, and waste products. Like all connective tissues, it develops from embryonic mesoderm and consists of living cells (RBCs, WBCs, platelets) suspended within an extracellular matrix (fluid plasma).",
+      hint: "Think about structural origin and physiological linkage between organs."
+    },
+    {
+      id: "sc3e6",
+      type: "mcq",
+      q: "Which of the following tissues forms the inner lining of human cheek cells?",
+      options: ["Stratified squamous epithelium", "Simple squamous epithelium", "Ciliated columnar epithelium", "Cuboidal epithelium"],
+      correctOption: 1,
+      hint: "Delicate flat layer of tile-like cells easily scraped in the NCERT lab activity.",
+      answer: "The inner lining of cheek cells is made of simple squamous epithelium, which is a thin, delicate protective layer of flat cells."
+    },
+    {
+      id: "sc3e7",
+      type: "short",
+      q: "What is the function of ciliated columnar epithelium in the respiratory tract?",
+      answer: "The cilia beat rhythmically in coordinated waves to push mucus, trapped dust particles, and microbes upward and outward away from the lungs toward the throat.",
+      hint: "Consider mechanical clearance of mucus."
+    }
   ]
 };
 

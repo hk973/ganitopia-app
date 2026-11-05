@@ -25,6 +25,8 @@ interface VisualizerProps {
 }
 
 export function ScienceVisualizer({ chapterNumber, chapterTitle, sectionId }: VisualizerProps) {
+  const [activeSubLab, setActiveSubLab] = useState<string>('default');
+
   return (
     <div className="rounded-2xl border-2 border-[var(--sci)]/40 bg-[var(--sheet)] p-6 mb-8 shadow-lg overflow-hidden">
       <div className="flex items-center justify-between gap-3 mb-4 flex-wrap border-b border-[var(--rule)] pb-4">
@@ -47,13 +49,65 @@ export function ScienceVisualizer({ chapterNumber, chapterTitle, sectionId }: Vi
       </div>
 
       {/* Render Dedicated Interactive Lab based on Chapter */}
-      {chapterNumber === 1 && <ScientificMethodSimulation />}
+      {chapterNumber === 1 && (
+        <div className="space-y-4">
+          <div className="flex gap-2 border-b border-[var(--rule)] pb-3">
+            <button
+              onClick={() => setActiveSubLab('matter')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                activeSubLab !== 'inquiry' ? 'bg-[var(--sci)] text-white shadow-sm' : 'border border-[var(--rule)] bg-[var(--sheet)] text-[var(--muted)]'
+              }`}
+            >
+              🔬 Matter &amp; Phase Changes Lab
+            </button>
+            <button
+              onClick={() => setActiveSubLab('inquiry')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                activeSubLab === 'inquiry' ? 'bg-[var(--sci)] text-white shadow-sm' : 'border border-[var(--rule)] bg-[var(--sheet)] text-[var(--muted)]'
+              }`}
+            >
+              🧪 Scientific Method Tester
+            </button>
+          </div>
+          {activeSubLab === 'inquiry' ? <ScientificMethodSimulation /> : <MatterSimulation />}
+        </div>
+      )}
       {chapterNumber === 2 && <CellSimulation />}
       {chapterNumber === 3 && <TissuesSimulation />}
       {chapterNumber === 4 && <MotionSimulation />}
       {chapterNumber === 5 && <SolutionsSimulation />}
       {chapterNumber === 6 && <ForceSimulation />}
-      {chapterNumber === 7 && <EnergySimulation />}
+      {chapterNumber === 7 && (
+        <div className="space-y-4">
+          <div className="flex gap-2 border-b border-[var(--rule)] pb-3">
+            <button
+              onClick={() => setActiveSubLab('energy')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                (activeSubLab === 'energy' || (activeSubLab === 'default' && sectionId !== 's4' && sectionId !== 's5'))
+                  ? 'bg-[var(--sci)] text-white shadow-sm'
+                  : 'border border-[var(--rule)] bg-[var(--sheet)] text-[var(--muted)]'
+              }`}
+            >
+              ⚡ Work &amp; Energy Rollercoaster
+            </button>
+            <button
+              onClick={() => setActiveSubLab('gravity')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                (activeSubLab === 'gravity' || (activeSubLab === 'default' && (sectionId === 's4' || sectionId === 's5')))
+                  ? 'bg-[var(--sci)] text-white shadow-sm'
+                  : 'border border-[var(--rule)] bg-[var(--sheet)] text-[var(--muted)]'
+              }`}
+            >
+              🌍 Planetary Gravity Drop Tower
+            </button>
+          </div>
+          {(activeSubLab === 'gravity' || (activeSubLab === 'default' && (sectionId === 's4' || sectionId === 's5'))) ? (
+            <GravitationSimulation />
+          ) : (
+            <EnergySimulation />
+          )}
+        </div>
+      )}
       {chapterNumber === 8 && <AtomicStructureSimulation />}
       {chapterNumber === 9 && <AtomsMoleculesSimulation />}
       {chapterNumber === 10 && <SoundSimulation />}
@@ -69,13 +123,13 @@ export function ScienceVisualizer({ chapterNumber, chapterTitle, sectionId }: Vi
 
 function getLabTitle(chapter: number): string {
   switch (chapter) {
-    case 1: return 'The Scientific Method & Hypothesis Tester';
+    case 1: return 'Particulate Nature of Matter & Phase Change Lab';
     case 2: return 'Interactive Plant vs Animal Cell Anatomy & Osmosis Lab';
     case 3: return 'Plant & Animal Tissues Microscopic Explorer';
     case 4: return 'Motion, Speed, Acceleration & Live Graph Plotter';
     case 5: return 'Mixtures, Solutions, Colloids & The Tyndall Effect Lab';
     case 6: return "Newton's Laws of Motion & Force Dynamics Bench";
-    case 7: return 'Work, Energy & Conservation of Mechanical Energy';
+    case 7: return 'Conservation of Energy & Planetary Gravitation Lab';
     case 8: return 'Journey Inside the Atom & Bohr Electron Shells';
     case 9: return 'Laws of Chemical Combination & Mass Ratio Scale';
     case 10: return 'Sound Waves: Compressions, Rarefactions & Frequency Lab';

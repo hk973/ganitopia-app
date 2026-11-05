@@ -82,9 +82,14 @@ Anything that occupies space (possesses **volume**) and has **mass** is defined 
         "Diffusion Rate vs Temperature: Always mention that diffusion rate increases with temperature because kinetic energy of particles increases."
       ],
       questions: [
-        { id: "sc1q1", type: "mcq", q: "The continuous random zig-zag motion of microscopic particles suspended in a fluid is called:", options: ["Osmosis", "Brownian motion", "Centrifugation", "Tyndall scattering"], correctOption: 1, hint: "Discovered by Robert Brown." },
-        { id: "sc1q2", type: "mcq", q: "Which of the following has the strongest intermolecular forces of attraction?", options: ["Oxygen gas", "Water", "Alcohol", "Iron rod"], correctOption: 3, hint: "A rigid solid metal." },
-        { id: "sc1q3", type: "short", q: "What happens to the rate of diffusion when temperature is increased?", answer: "The rate of diffusion increases because particles gain kinetic energy and move faster.", hint: "Think about molecular kinetic energy." }
+        { id: "sc1q1", type: "mcq", q: "The continuous random zig-zag motion of microscopic particles suspended in a fluid is called:", options: ["Osmosis", "Brownian motion", "Centrifugation", "Tyndall scattering"], correctOption: 1, hint: "Discovered by botanist Robert Brown in 1827." },
+        { id: "sc1q1_b", type: "mcq", q: "Assertion (A): The aroma of hot sizzling food reaches us several meters away, but to smell cold food we have to go close.\nReason (R): The rate of diffusion increases rapidly with temperature as particles acquire higher thermal kinetic energy.", options: ["Both (A) and (R) are true and (R) is the correct explanation of (A)", "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)", "(A) is true but (R) is false", "(A) is false but (R) is true"], correctOption: 0, hint: "Higher temperature means faster molecular velocity." },
+        { id: "sc1q1_c", type: "mcq", q: "Which of the following is strictly NOT matter according to scientific definition?", options: ["Air", "Almonds", "Cold (feeling of coldness)", "Cold drink"], correctOption: 2, hint: "Matter must have mass and occupy volume. Feelings and thoughts do not." },
+        { id: "sc1q1_d", type: "mcq", q: "A swimmer is easily able to cut through water in a swimming pool. Which property of matter does this observation prove?", options: ["Particles of matter are stationary", "Particles of matter have intermolecular spaces and moderate attractive forces", "Matter is continuous like a block of wood", "Particles of matter have infinite mass"], correctOption: 1, hint: "Liquid particles have gaps and can be pushed aside." },
+        { id: "sc1q2", type: "mcq", q: "Which of the following has the strongest intermolecular forces of attraction?", options: ["Oxygen gas", "Water", "Alcohol", "Iron rod"], correctOption: 3, hint: "A rigid solid metal has tightly bound particles." },
+        { id: "sc1q3", type: "short", q: "What happens to the rate of diffusion when temperature is increased?", answer: "The rate of diffusion increases because particles gain thermal kinetic energy, causing them to move much faster and intermix rapidly.", hint: "Think about molecular kinetic energy." },
+        { id: "sc1q1_e", type: "short", q: "When a spoonful of salt is dissolved in 100 mL of water, the water level does not noticeably rise. Explain why.", answer: "Water is composed of microscopic particles with intermolecular spaces (voids) between them. The dissolved salt particles dissociate and slip neatly into these pre-existing empty spaces without increasing the overall liquid volume.", hint: "Think about voids between liquid particles." },
+        { id: "sc1q1_f", type: "mcq", q: "If a drop of blue ink and a drop of honey are placed into two separate beakers of water without stirring, what is observed?", options: ["Honey spreads faster than ink", "Blue ink diffuses much faster than dense honey", "Both diffuse at identical rates", "Neither diffuses without stirring"], correctOption: 1, hint: "Lighter particles with lower viscosity diffuse much faster." }
       ]
     },
     {
@@ -193,8 +198,135 @@ When liquid evaporates, the evaporating particles absorb the required latent hea
       ],
       questions: [
         { id: "sc1q4", type: "num", q: "Convert 300 K to Celsius scale (°C):", numAnswer: 27, hint: "°C = K - 273 = 300 - 273." },
+        { id: "sc1q4_b", type: "num", q: "Convert 373°C (the boiling point of water) to the Kelvin scale (K):", numAnswer: 646, hint: "K = °C + 273 = 373 + 273." },
+        { id: "sc1q4_c", type: "mcq", q: "Assertion (A): Ice at 0°C (273 K) is noticeably more effective in cooling beverages than water at 0°C.\nReason (R): For every kilogram of ice that melts, it absorbs an extra 3.34 × 10⁵ Joules of latent heat of fusion from the beverage.", options: ["Both (A) and (R) are true and (R) is the correct explanation of (A)", "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)", "(A) is true but (R) is false", "(A) is false but (R) is true"], correctOption: 0, hint: "Latent heat of fusion gives ice greater heat absorption capacity." },
+        { id: "sc1q4_d", type: "mcq", q: "Which state of matter has a fixed definite volume but assumes the shape of whichever container it is poured into?", options: ["Solid", "Liquid", "Gas", "Plasma"], correctOption: 1, hint: "Liquids have fixed volume but flow into any container." },
+        { id: "sc1q4_e", type: "mcq", q: "The direct transition of solid ammonium chloride or camphor into gas upon heating without melting into liquid is called:", options: ["Evaporation", "Sublimation", "Deposition", "Transpiration"], correctOption: 1, hint: "Solid directly to vapor." },
+        { id: "sc1q4_f", type: "mcq", q: "Why is solid carbon dioxide commercially known as 'Dry Ice'?", options: ["It contains no water and sublimates directly into gas at -78.5°C without melting", "It is harvested from dry desert salt flats", "It chemically dehydrates surrounding objects", "It only freezes in complete vacuum"], correctOption: 0, hint: "Sublimates without leaving any wet liquid residue." },
         { id: "sc1q5", type: "mcq", q: "Why does an earthen pot (matka) keep water cool in summer?", options: ["Pores allow air to blow through", "Continuous evaporation through pores extracts heat", "Clay is an insulator", "Clay chemical reaction cools water"], correctOption: 1, hint: "Evaporation causes cooling." },
-        { id: "sc1q6", type: "short", q: "Define Latent Heat of Vaporization.", answer: "The amount of heat energy required to change 1 kg of liquid into gas at atmospheric pressure at its boiling point without any change in temperature.", hint: "Hidden heat of liquid to gas transition." }
+        { id: "sc1q6", type: "short", q: "Define Latent Heat of Vaporization.", answer: "The amount of heat energy required to change 1 kg of liquid into gas at atmospheric pressure at its boiling point without any change in temperature.", hint: "Hidden heat of liquid to gas transition." },
+        { id: "sc1q4_g", type: "short", q: "Why does the temperature of boiling water remain locked at 100°C even while heat energy is continuously supplied by the burner?", answer: "The supplied heat is consumed as the latent heat of vaporization to break the strong intermolecular bonds holding liquid water molecules together, rather than increasing their thermal kinetic energy.", hint: "Latent means hidden heat used for bond breaking." }
+      ]
+    },
+    {
+      id: "s3",
+      title: "Evaporation, Cooling Factors & The Fourth and Fifth States of Matter",
+      realWorldScenario: {
+        title: "Sipping Hot Tea from a Saucer & The Acetone Sensation on Your Palm",
+        context: "When tea is piping hot, pouring it into a wide saucer allows you to drink it comfortably within seconds without scalding your tongue. And when you pour a drop of nail polish remover (acetone) or sanitizer onto your palm, your skin feels strikingly ice-cold before the liquid vanishes into thin air!",
+        application: "A saucer dramatically increases the exposed surface area of the liquid, enabling rapid surface evaporation that quickly extracts heat. Acetone has an ultra-low boiling point; its particles instantly absorb latent heat directly from the living cells of your palm to vaporize, leaving your sensory nerves feeling intensely cooled."
+      },
+      content: `### What is Evaporation?
+Evaporation is the spontaneous change of a liquid into vapor at **any temperature below its boiling point**.
+
+Unlike boiling—which is a bulk phenomenon where bubbles form throughout the liquid—evaporation is strictly a **surface phenomenon**.
+* Particles at the exposed surface of a liquid possess higher kinetic energy than particles buried in the bulk.
+* A fraction of these energetic surface particles acquire enough energy to overcome the attractive cohesive forces of neighboring particles and escape into the air as vapor.
+
+### The Four Crucial Factors Affecting the Rate of Evaporation:
+
+1. **Surface Area:**
+   * Evaporation is a surface process. If the surface area is increased, the rate of evaporation increases proportionately.
+   * *Classroom example:* While putting clothes out for drying, we spread them out rather than leaving them folded. We pour hot milk or tea into a wide saucer to cool it down quickly.
+
+2. **Temperature:**
+   * With an increase in temperature, a greater number of particles get sufficient kinetic energy to break free into the vapor state.
+   * *Classroom example:* Wet clothes dry much faster under the blistering summer sun than on a chilly winter morning.
+
+3. **Humidity (Amount of Water Vapor in Air):**
+   * Air around us cannot hold more than a definite amount of water vapor at a given temperature.
+   * If the humidity is already high (e.g., during monsoon or rainy season), the rate of evaporation decreases markedly.
+   * *Classroom example:* On a humid day, sweat does not evaporate easily from our skin, making us feel sticky and uncomfortable.
+
+4. **Wind Speed:**
+   * With the increase in wind speed, water vapor particles are whisked away rapidly by the breeze, reducing the vapor pressure near the liquid surface.
+   * *Classroom example:* Clothes dry faster under a whirring ceiling fan or on a windy day.
+
+### How Does Evaporation Cause Cooling?
+In an open vessel, the liquid keeps on evaporating. The particles of liquid absorb energy from the surroundings to regain the energy lost during evaporation. This continuous absorption of heat from the surrounding environment leaves the surroundings cool.
+
+* **Desert Air Cooler on a Hot Dry Day:** On a hot and dry day, temperature is high and humidity is very low. Both factors accelerate evaporation. The water circulating over the cooling pads evaporates swiftly, absorbing large amounts of thermal energy from the incoming air and providing icy breezes.
+* **Sweating in Summer:** Our body cools itself down through transpiration/perspiration. As sweat evaporates off our skin, it absorbs latent heat from our body, keeping our core temperature steady at 37°C.
+* **Why Wear Cotton Clothes in Summer?** Cotton is a supreme absorber of water. It absorbs body perspiration and exposes it to the atmosphere, facilitating rapid evaporation and natural cooling. Synthetic polyester clothes cannot absorb sweat and trap heat.
+* **Water Droplets on an Ice-Cold Glass:** When you pour chilled water into a tumbler, the outer surface soon gets covered with water droplets. This is due to **condensation**: water vapor present in ambient air touches the cold glass, loses thermal energy, and converts from gas back to liquid.
+
+### Beyond Solid, Liquid & Gas: The Fourth and Fifth States of Matter
+
+Modern physics recognizes five fundamental states of matter:
+
+1. **Plasma (The 4th State):**
+   * Consists of super-energetic and super-excited particles in the form of **ionized gases**.
+   * Inside fluorescent light tubes and neon sign bulbs, electricity ionizes the trapped gas, creating glowing plasma.
+   * The Sun and distant stars glow brilliantly because extreme gravitational pressure and thermonuclear temperatures create plasma.
+
+2. **Bose-Einstein Condensate - BEC (The 5th State):**
+   * In 1920, brilliant Indian physicist **Satyendra Nath Bose** made pathbreaking statistical calculations regarding light quanta.
+   * Building on Bose's work, **Albert Einstein** predicted a new state of matter: the *Bose-Einstein Condensate*.
+   * In 2001, Eric Cornell, Carl Wieman, and Wolfgang Ketterle won the Nobel Prize in Physics for successfully achieving BEC by cooling a gas of extremely low density (about 1/100,000th the density of normal air) to super-low temperatures just fractions of a billionth of a degree above absolute zero (0 Kelvin).`,
+      keyConcepts: [
+        { term: "Evaporation", definition: "A surface phenomenon in which liquid molecules convert into vapor at any temperature below the liquid's boiling point." },
+        { term: "Humidity", definition: "The measure of moisture or water vapor content present in the surrounding air." },
+        { term: "Condensation", definition: "The phase change where vapor particles lose thermal energy upon cooling and transform back into liquid." },
+        { term: "Plasma", definition: "The fourth state of matter consisting of highly energized, electrically ionized gas particles, as seen in stars and neon signs." },
+        { term: "Bose-Einstein Condensate", definition: "The fifth state of matter formed by cooling an ultra-low-density gas to temperatures within nanokelvins of absolute zero." },
+      ],
+      formulas: [
+        { label: "Rate of Evaporation Relation", latex: "\\text{Rate} \\propto \\frac{\\text{Surface Area} \\times \\text{Temperature} \\times \\text{Wind Speed}}{\\text{Humidity}}", explanation: "Evaporation increases with surface area, temperature, and wind speed, and decreases with humidity." }
+      ],
+      workedExamples: [
+        {
+          title: "Why Does a Desert Cooler Work Better on a Hot Dry Day?",
+          problem: "Explain why a desert cooler cools more effectively on a hot, dry day than on a humid, rainy day.",
+          steps: [
+            "Step 1: On a hot dry day, ambient temperature is high and humidity (water vapor content of air) is very low.",
+            "Step 2: Low humidity and high temperature both increase the rate of evaporation of water over the cooler pads.",
+            "Step 3: Rapid evaporation causes maximum absorption of latent heat from the surrounding air.",
+            "Step 4: The incoming air temperature drops significantly as a result.",
+            "Conclusion: On a humid rainy day, air is already saturated with moisture, evaporation stalls, and cooling is minimal."
+          ],
+          answer: "Higher temperature and low humidity accelerate the evaporation rate of water, extracting maximum latent heat from ambient air."
+        },
+        {
+          title: "Sipping Hot Tea from a Saucer",
+          problem: "Why are we able to sip hot tea or milk faster from a saucer rather than a cup?",
+          steps: [
+            "Step 1: A saucer has a significantly larger exposed surface area compared to a cylindrical cup.",
+            "Step 2: Evaporation is a surface phenomenon whose rate is directly proportional to exposed surface area.",
+            "Step 3: In the saucer, more liquid molecules escape into the vapor phase per second, rapidly carrying away latent heat of vaporization.",
+            "Step 4: Consequently, the liquid cools down to a drinkable temperature much faster in a saucer."
+          ],
+          answer: "The larger surface area of the saucer drastically speeds up surface evaporation and heat dissipation."
+        }
+      ],
+      activities: [
+        {
+          number: "1.14",
+          title: "Investigating the Four Factors Influencing Evaporation",
+          materials: ["5 mL water in a test tube", "5 mL water in an open petri dish", "Room table", "Cupboard", "Ceiling fan"],
+          steps: [
+            "Take 5 mL of water in an open petri dish and place it under an active ceiling fan.",
+            "Take 5 mL of water in a narrow test tube and place it near the window.",
+            "Take 5 mL of water in a second open petri dish and place it inside a closed, dark cupboard.",
+            "Record the time required for water in each vessel to completely evaporate on both a dry day and a rainy day."
+          ],
+          observation: "The open petri dish under the ceiling fan evaporates fastest (high surface area + high wind speed). The narrow test tube in the dark cupboard takes the longest.",
+          conclusion: "Evaporation rate increases with surface area and air movement, and slows drastically in enclosed, humid spaces."
+        }
+      ],
+      didYouKnow: "Lightning bolts are 5 times hotter than the surface of the Sun (nearly 30,000 Kelvin) and transform the ambient air channel into glowing, conductive plasma for a fraction of a millisecond!",
+      examTips: [
+        "Evaporation vs Boiling Comparison: Always mention: Boiling is a BULK phenomenon at a FIXED boiling point; Evaporation is a SURFACE phenomenon at ANY temperature below boiling point.",
+        "Sweat & Cotton: If asked why we wear cotton in summer, explain two steps: (1) Cotton is a good absorber of sweat; (2) It exposes sweat to the atmosphere for rapid cooling via latent heat absorption."
+      ],
+      questions: [
+        { id: "sc1q7", type: "mcq", q: "Which of the following conditions will increase the rate of evaporation of water?", options: ["Increase in temperature of water", "Decrease in surface area", "Increase in humidity", "Decrease in wind speed"], correctOption: 0, hint: "Higher temperature gives particles more kinetic energy." },
+        { id: "sc1q7_b", type: "mcq", q: "Assertion (A): Pouring a few drops of nail polish remover (acetone) on our palm produces a soothing sensation of cold.\nReason (R): Acetone molecules absorb latent heat of vaporization directly from our palm cells and evaporate rapidly into vapor.", options: ["Both (A) and (R) are true and (R) is the correct explanation of (A)", "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)", "(A) is true but (R) is false", "(A) is false but (R) is true"], correctOption: 0, hint: "Evaporation extracts latent heat from the immediate contact surface." },
+        { id: "sc1q7_c", type: "mcq", q: "Why do clothes spread on a clothesline dry much faster on a windy day?", options: ["Wind creates frictional heating of the cloth", "Moving air whisks away water vapor molecules, reducing ambient vapor concentration near the surface", "Wind increases the chemical reactivity of water", "Air particles pull water molecules by magnetic force"], correctOption: 1, hint: "Wind carries away moisture so more water can evaporate." },
+        { id: "sc1q7_d", type: "mcq", q: "The fifth state of matter, Bose-Einstein Condensate (BEC), was predicted based on theoretical calculations by which Indian physicist in 1920?", options: ["C.V. Raman", "Satyendra Nath Bose", "Homi J. Bhabha", "Jagadish Chandra Bose"], correctOption: 1, hint: "Collaborated mathematically with Albert Einstein." },
+        { id: "sc1q8", type: "mcq", q: "The fourth state of matter consisting of super-energetic ionized gas particles is called:", options: ["Bose-Einstein Condensate", "Plasma", "Superfluid", "Solid solution"], correctOption: 1, hint: "Found inside stars and fluorescent tubes." },
+        { id: "sc1q9", type: "short", q: "Why do we see water droplets on the outer surface of a glass containing ice-cold water?", answer: "Water vapor present in ambient air loses thermal energy upon touching the cold outer glass surface and condenses into liquid droplets.", hint: "Think of phase change from gas to liquid." },
+        { id: "sc1q7_e", type: "short", q: "Why does a desert air cooler cool noticeably better on a hot, dry day than on a humid, rainy monsoon day?", answer: "On a hot and dry day, high temperature and low air humidity maximize the rate of water evaporation from the cooling pads, thereby extracting maximum latent heat from incoming air and chilling it effectively.", hint: "Both high temperature and low humidity accelerate evaporation." },
+        { id: "sc1q7_f", type: "mcq", q: "The brilliant glow observed inside neon sign bulbs and aurora borealis (Northern Lights) is caused by which state of matter?", options: ["Plasma", "Bose-Einstein Condensate", "Supercooled Liquid", "Sublimated Camphor"], correctOption: 0, hint: "Electrically charged ionized gas particles." }
       ]
     }
   ],

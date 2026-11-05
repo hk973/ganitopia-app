@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import type { ScienceChapter, ScienceSection } from '@/data/science/types';
 import { ScienceVisualizer } from './ScienceVisualizer';
 import { ScienceQuestionCard } from './ScienceQuestionCard';
+import { ScienceContentRenderer } from './ScienceContentRenderer';
 import { ConceptFlashcards } from '@/components/interactive/ConceptFlashcards';
 import { FormulaPlayground } from '@/components/interactive/FormulaPlayground';
 import { StepByStepWalkthrough } from '@/components/interactive/StepByStepWalkthrough';
@@ -48,9 +49,9 @@ export function ScienceSectionContent({
         >
           {section.title}
         </h1>
-        <p className="text-base text-[var(--muted)] leading-relaxed max-w-3xl">
-          {section.content}
-        </p>
+        <div className="text-base leading-relaxed max-w-3xl text-[var(--ink)]">
+          <ScienceContentRenderer content={section.content} />
+        </div>
       </div>
 
       {/* Real-World Hook Card (if available) */}
@@ -85,11 +86,11 @@ export function ScienceSectionContent({
 
       {/* In-Depth Content Blocks (if available) */}
       {section.contentBlocks && section.contentBlocks.length > 0 && (
-        <div className="space-y-4 prose max-w-none text-[var(--ink)]">
+        <div className="space-y-4 max-w-none text-[var(--ink)]">
           {section.contentBlocks.map((block, bIdx) => (
-            <p key={bIdx} className="text-sm md:text-base leading-relaxed text-[var(--ink)]">
-              {block}
-            </p>
+            <div key={bIdx} className="text-sm md:text-base leading-relaxed text-[var(--ink)]">
+              <ScienceContentRenderer content={block} />
+            </div>
           ))}
         </div>
       )}

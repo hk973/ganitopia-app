@@ -18,30 +18,30 @@ const ch10: ScienceChapter = {
         application: "Sound is a mechanical wave that requires a material medium (solid, liquid, or gas) consisting of vibrating particles to transmit energy. Outer space is a nearly perfect vacuum with zero matter to undergo compressions and rarefactions. Astronauts must communicate via radio waves (electromagnetic radiation), which can travel through the void of space."
       },
       content: `### How is Sound Produced?
-Sound is produced when an object vibrates — executing rapid back-and-forth periodic motion.
+Sound is produced when an object vibrates — executing rapid back-and-forth periodic oscillatory motion:
 * A vibrating tuning fork strikes adjacent air particles.
-* In human speech, air exhaled from the lungs sets the **vocal cords** into vibration.
+* In human speech, air exhaled from the lungs sets the vocal cords in the larynx into vibration.
 * In a guitar or sitar, plucked stretched strings vibrate.
-* In a tabla or drum, a struck stretched membrane oscillates.
+* In a tabla or drum, a struck stretched elastic membrane oscillates.
 
 ### Sound Propagation as Longitudinal Waves
-When a vibrating tuning fork prong moves forward, it pushes and compresses the air immediately in front of it, creating a high-pressure, high-density zone termed a **Compression ($C$)**.
-When the prong swings backward, it creates a region of low pressure and low density termed a **Rarefaction ($R$)**.
+When a vibrating tuning fork prong moves forward, it pushes and compresses the air immediately in front of it, creating a high-pressure, high-density zone termed a Compression (C).
+When the prong swings backward, it creates a region of low pressure and low density termed a Rarefaction (R).
 * As the prong continues oscillating back and forth, a continuous series of alternating compressions and rarefactions moves through the air.
-* **Longitudinal Wave:** A wave in which individual particles of the medium oscillate back and forth parallel to the direction of wave propagation. Individual particles do **not** travel from source to listener; they merely transfer kinetic energy and momentum to neighboring particles!
+* Longitudinal Wave: A wave in which individual particles of the medium oscillate back and forth parallel to the direction of wave propagation. Individual particles do NOT travel from source to listener; they merely transfer kinetic energy and momentum to neighboring particles!
 
 ### Sound Requires a Material Medium (The Bell Jar Experiment)
-Sound cannot propagate through vacuum.
+Sound cannot propagate through vacuum:
 * When an electric bell is suspended inside a sealed glass bell jar connected to a vacuum pump, the ringing bell is clearly audible.
 * As the vacuum pump gradually extracts the air, the sound grows progressively fainter, even though the hammer continues striking the gong.
 * When the jar is completely evacuated of air, the ringing becomes totally inaudible, proving conclusively that sound needs a material medium.
 
 ### Speed of Sound Across Different Media
 Sound travels fastest through solids, moderately through liquids, and slowest through gases:
-$$v_{\\text{solid}} > v_{\\text{liquid}} > v_{\\text{gas}}$$
-* In air at $0^\\circ\\text{C}$: $331\\text{ m/s}$; at $22^\\circ\\text{C}$: $344\\text{ m/s}$.
-* In water: $\\approx 1498\\text{ m/s}$.
-* In solid steel/iron: $\\approx 5960\\text{ m/s}$ (almost 18 times faster than in air!).
+v_solid > v_liquid > v_gas
+* In air at 0°C: 331 m/s; at 22°C: 344 m/s.
+* In water: approximately 1498 m/s.
+* In solid steel/iron: approximately 5960 m/s (almost 18 times faster than in air!).
 * Speed of sound increases with increasing temperature and higher humidity.`,
       keyConcepts: [
         { term: "Sound", definition: "A form of energy that produces the sensation of hearing in our ears, produced by vibrating bodies and propagated as mechanical waves." },
@@ -87,9 +87,67 @@ $$v_{\\text{solid}} > v_{\\text{liquid}} > v_{\\text{gas}}$$
         "Medium particles do NOT move from one place to another; only the disturbance (wave energy) propagates."
       ],
       questions: [
-        { id: "sc10q1", type: "mcq", q: "Sound waves in air are:", options: ["Transverse waves", "Longitudinal waves", "Electromagnetic waves", "Stationary light waves"], correctOption: 1, hint: "Air particles vibrate parallel to wave travel." },
-        { id: "sc10q2", type: "mcq", q: "In which medium does sound travel the fastest?", options: ["Air", "Water", "Steel", "Vacuum"], correctOption: 2, hint: "Solids have the highest particle density and elasticity." },
-        { id: "sc10q3", type: "short", q: "Why can't two astronauts on the Moon hear each other directly without radios?", answer: "The Moon has no atmosphere (vacuum), and sound requires a material medium to propagate.", hint: "Recall what is absent on the lunar surface." }
+        {
+          id: "sc10q1",
+          type: "mcq",
+          q: "Sound waves propagating through air are classified as:",
+          options: ["Transverse waves", "Longitudinal mechanical waves", "Electromagnetic radiation", "Stationary light waves"],
+          correctOption: 1,
+          hint: "Air particles oscillate back and forth parallel to the direction of wave energy transfer.",
+          answer: "Sound waves in air are longitudinal mechanical waves because the air particles vibrate parallel to the direction of wave propagation."
+        },
+        {
+          id: "sc10q2",
+          type: "mcq",
+          q: "In which of the following media does sound travel with the highest velocity?",
+          options: ["Air (gas)", "Distilled water (liquid)", "Solid steel (solid)", "Vacuum"],
+          correctOption: 2,
+          hint: "Solids possess high density and high elastic modulus, transmitting sound fastest (~5960 m/s).",
+          answer: "Sound travels fastest in solids like steel (~5960 m/s) because atoms are tightly packed with high elastic restorative forces."
+        },
+        {
+          id: "sc10q3",
+          type: "short",
+          q: "Why can two astronauts standing on the Moon's surface not hear each other directly without radio equipment?",
+          answer: "The Moon has no atmosphere (vacuum). Since sound is a mechanical wave that requires a material medium to propagate, it cannot travel through the lunar vacuum.",
+          hint: "Sound cannot travel in a vacuum."
+        },
+        {
+          id: "sc10q4",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): During a thunderstorm, the flash of lightning is seen several seconds before the sound of thunder is heard.\nReason (R): The speed of light in air (3 × 10⁸ m/s) is vastly greater than the speed of sound in air (~340 m/s).",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "Light travels almost a million times faster than sound in air.",
+          answer: "Both Assertion and Reason are true. Light reaches the observer almost instantaneously, whereas the sound of thunder covers distance at only ~340 m/s, causing a noticeable delay."
+        },
+        {
+          id: "sc10q5",
+          type: "short",
+          q: "What is a compression and a rarefaction in a sound wave?",
+          answer: "A compression is a region of high pressure and high particle density where particles are crowded together. A rarefaction is a region of low pressure and low particle density where particles are spread apart.",
+          hint: "High density vs low density regions."
+        },
+        {
+          id: "sc10q6",
+          type: "num",
+          q: "A person fires a gun and another person 1020 meters away hears the report 3 seconds later. Calculate the speed of sound in air in m/s.",
+          numAnswer: 340,
+          hint: "Speed v = Distance / Time = 1020 / 3.",
+          answer: "v = d / t = 1020 m / 3 s = 340 m/s."
+        },
+        {
+          id: "sc10q7",
+          type: "short",
+          q: "What happens to the speed of sound in air as the ambient temperature increases?",
+          answer: "The speed of sound in air increases as temperature increases because warmer air molecules possess greater average kinetic energy and vibrate more rapidly.",
+          hint: "Higher thermal kinetic energy aids wave transmission."
+        }
       ]
     },
     {
@@ -103,29 +161,29 @@ $$v_{\\text{solid}} > v_{\\text{liquid}} > v_{\\text{gas}}$$
       content: `A sound wave can be graphically represented as a pressure or density vs. distance curve:
 
 ### Key Wave Parameters:
-1. **Wavelength ($\\lambda$, Lambda):**
-   * The distance between two consecutive compressions ($C$) or two consecutive rarefactions ($R$).
-   * SI Unit: meter ($\\text{m}$).
-2. **Frequency ($\\nu$, Nu or $f$):**
+1. Wavelength (λ, Lambda):
+   * The distance between two consecutive compressions (C) or two consecutive rarefactions (R).
+   * SI Unit: meter (m).
+2. Frequency (ν, Nu or f):
    * The number of complete wave cycles (or complete oscillations) produced per unit time.
-   * SI Unit: **Hertz (Hz)** ($1\\text{ Hz} = 1\\text{ oscillation per second}$).
-3. **Time Period ($T$):**
+   * SI Unit: Hertz (Hz) (1 Hz = 1 oscillation per second).
+3. Time Period (T):
    * The time taken by two consecutive compressions or rarefactions to cross a fixed point.
-   $$T = \\frac{1}{\\nu} \\implies \\nu = \\frac{1}{T}$$
-   * SI Unit: second ($\\text{s}$).
-4. **Amplitude ($A$):**
+   T = 1 / ν  and  ν = 1 / T
+   * SI Unit: second (s).
+4. Amplitude (A):
    * The magnitude of maximum disturbance (displacement or pressure variation) from the mean equilibrium position.
-   * Determines the **energy and loudness** of the sound.
-5. **Wave Speed ($v$):**
+   * Determines the energy and loudness of the sound.
+5. Wave Speed (v):
    * The distance traveled by a wave per unit time:
-   $$v = \\frac{\\text{Distance}}{\\text{Time}} = \\frac{\\lambda}{T} = \\nu \\cdot \\lambda$$
-   $$\\mathbf{v = \\nu \\cdot \\lambda}$$
+   v = Distance / Time = λ / T = ν × λ
+   v = ν × λ
 
 ### Pitch, Loudness & Timbre (Quality)
-* **Pitch (Shrillness):** Determined purely by **frequency**. A faster vibration rate produces a higher pitch. A woman's voice or violin has higher pitch than a man's voice or bass drum.
-* **Loudness:** Determined by **amplitude**. Loudness is proportional to the square of amplitude ($\\text{Loudness} \\propto A^2$). If amplitude is doubled, loudness becomes 4 times greater! Measured in decibels (dB).
-* **Timbre or Quality:** The characteristic that allows our ear to distinguish between two sounds having the exact same pitch and loudness (e.g., differentiating a flute note from a piano note). Determined by the shape of the wave and harmonic overtones.
-* **Tone vs. Note:** A sound of single frequency is called a **tone**; a mixture of several frequencies producing a pleasant sensation is called a **note**.`,
+* Pitch (Shrillness): Determined purely by frequency. A faster vibration rate produces a higher pitch. A woman's voice or violin has higher pitch than a man's voice or bass drum.
+* Loudness: Determined by amplitude. Loudness is proportional to the square of amplitude (Loudness ∝ A²). If amplitude is doubled, loudness becomes 4 times greater! Measured in decibels (dB).
+* Timbre or Quality: The acoustic property that allows our ear to distinguish between two sounds having the exact same pitch and loudness (e.g., differentiating a flute note from a piano note). Determined by the shape of the wave and harmonic overtones.
+* Tone vs. Note: A sound of single pure frequency is called a tone; a mixture of several frequencies producing a pleasant sensation is called a note.`,
       keyConcepts: [
         { term: "Wavelength (λ)", definition: "The linear distance between two consecutive compressions or rarefactions. SI unit: meter (m)." },
         { term: "Frequency (ν)", definition: "Number of full sound wave cycles passing a point per second. SI unit: Hertz (Hz)." },
@@ -186,9 +244,70 @@ $$v_{\\text{solid}} > v_{\\text{liquid}} > v_{\\text{gas}}$$
         "Remember the difference: Pitch depends on FREQUENCY. Loudness depends on AMPLITUDE. Quality depends on WAVEFORM."
       ],
       questions: [
-        { id: "sc10q4", type: "num", q: "A sound wave has frequency 500 Hz and speed 350 m/s. What is its wavelength in meters?", numAnswer: 0.7, tolerance: 0.02, hint: "λ = v / ν = 350 / 500." },
-        { id: "sc10q5", type: "mcq", q: "If the amplitude of a sound wave is tripled, its loudness increases by a factor of:", options: ["3", "6", "9", "27"], correctOption: 2, hint: "Loudness is proportional to amplitude squared: (3)² = 9." },
-        { id: "sc10q6", type: "short", q: "Which wave characteristic determines the shrillness of a sound?", answer: "Frequency (or pitch).", hint: "Vibrations per second." }
+        {
+          id: "sc10q8",
+          type: "num",
+          q: "A sound wave has frequency 500 Hz and speed 350 m/s in air. What is its wavelength in meters?",
+          numAnswer: 0.7,
+          tolerance: 0.02,
+          hint: "λ = v / ν = 350 / 500.",
+          answer: "Wavelength λ = v / ν = 350 m/s / 500 Hz = 0.70 meters."
+        },
+        {
+          id: "sc10q9",
+          type: "mcq",
+          q: "If the amplitude of a sound vibration is tripled (increased by 3 times), its perceived loudness increases by a factor of:",
+          options: ["3", "6", "9", "27"],
+          correctOption: 2,
+          hint: "Loudness is directly proportional to the square of amplitude (Loudness ∝ A²).",
+          answer: "Because Loudness ∝ Amplitude², tripling the amplitude increases loudness by 3² = 9 times."
+        },
+        {
+          id: "sc10q10",
+          type: "short",
+          q: "Which acoustic wave parameter determines the shrillness or pitch of a musical sound?",
+          answer: "Frequency (or rate of vibrations per second).",
+          hint: "Higher vibrations per second = higher pitch."
+        },
+        {
+          id: "sc10q11",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): Two musical instruments playing notes of the exact same frequency and loudness can be easily distinguished by the listener.\nReason (R): Different instruments produce sound waves with distinct waveforms and harmonic overtones, defining their timbre or quality.",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "Timbre allows identification of a violin vs a flute.",
+          answer: "Both Assertion and Reason are true. The quality or timbre of a musical sound depends on its wave shape and overtone spectrum, allowing our ears to differentiate sources."
+        },
+        {
+          id: "sc10q12",
+          type: "num",
+          q: "Find the time period of a sound wave whose frequency is 250 Hz (in seconds).",
+          numAnswer: 0.004,
+          tolerance: 0.0005,
+          hint: "T = 1 / ν = 1 / 250.",
+          answer: "T = 1 / 250 s = 0.004 seconds."
+        },
+        {
+          id: "sc10q13",
+          type: "mcq",
+          q: "A sound of a single, pure frequency is termed as a:",
+          options: ["Tone", "Note", "Noise", "Harmonic"],
+          correctOption: 0,
+          hint: "A note is a mixture of frequencies; a single pure frequency is a tone.",
+          answer: "A sound consisting of a single pure frequency is called a tone."
+        },
+        {
+          id: "sc10q14",
+          type: "short",
+          q: "Calculate the frequency of a sound wave with a wavelength of 0.85 m traveling at 340 m/s in air.",
+          answer: "Frequency ν = v / λ = 340 / 0.85 = 400 Hz.",
+          hint: "Use ν = v / λ."
+        }
       ]
     },
     {
@@ -201,44 +320,44 @@ $$v_{\\text{solid}} > v_{\\text{liquid}} > v_{\\text{gas}}$$
       },
       content: `### Laws of Reflection of Sound
 Like light, sound reflects off hard solid and liquid surfaces:
-1. The incident sound wave, the reflected sound wave, and the normal to the reflecting surface at the point of incidence all lie in the **same plane**.
-2. The angle of incidence equals the angle of reflection ($\\angle i = \\angle r$).
+1. The incident sound wave, the reflected sound wave, and the normal to the reflecting surface at the point of incidence all lie in the same plane.
+2. The angle of incidence equals the angle of reflection (∠i = ∠r).
 
 ### Echo Mechanics & Minimum Distance
-An **echo** is the distinct repetition of sound caused by reflection from a distant obstacle.
-* **Persistence of Hearing:** An auditory sensation persists in the human brain for approximately $0.1\\text{ s}$ ($1/10^\\text{th}$ of a second). To hear a distinct, separate echo, the reflected sound must reach the ear at least $0.1\\text{ s}$ after the original sound.
-* **Derivation of Minimum Distance to Obstacle ($d$):**
-  Let speed of sound in air at $22^\\circ\\text{C}$ be $v = 344\\text{ m/s}$.
-  Total path traveled by sound (to obstacle and back): $2d = v \\cdot t$
-  For minimum echo delay $t = 0.1\\text{ s}$:
-  $$2d = 344 \\times 0.1 = 34.4\\text{ m} \\implies \\mathbf{d = 17.2\\text{ meters}}$$
-  Therefore, to hear a distinct echo at $22^\circ\text{C}$, the reflecting surface must be at least **17.2 meters** away from the source!
+An echo is the distinct repetition of sound caused by reflection from a distant obstacle:
+* Persistence of Hearing: An auditory sensation persists in the human brain for approximately 0.1 s (1/10th of a second). To hear a distinct, separate echo, the reflected sound must reach the ear at least 0.1 s after the original sound.
+* Derivation of Minimum Distance to Obstacle (d):
+  Let speed of sound in air at 22°C be v = 344 m/s.
+  Total path traveled by sound (to obstacle and back): 2d = v × t
+  For minimum echo delay t = 0.1 s:
+  2d = 344 × 0.1 = 34.4 m  ==>  d = 17.2 meters!
+  Therefore, to hear a distinct echo at 22°C, the reflecting surface must be at least 17.2 meters away from the source!
 
 ### Reverberation & Architectural Acoustics
 In a large empty hall, auditorium, or cinema, sound reflects repeatedly off walls, ceiling, and floor, causing sound to persist even after the source has stopped.
-* **Reverberation:** The excessive persistence of sound due to multiple repeated reflections.
+* Reverberation: The excessive persistence of sound due to multiple repeated reflections.
 * Excessive reverberation makes speech muddy and unintelligible.
-* **Methods to control reverberation:**
+* Methods to control reverberation:
   1. Covering walls and ceilings with sound-absorbent materials (compressed acoustic fiberboard, rough plaster, perforated wood).
   2. Hanging heavy fabric draperies and curtains over doorways and walls.
   3. Installing upholstered seats with sound-absorbing cushion fabric.
   4. Constructing curved ceilings so that reflected sound is evenly distributed to all corners of the auditorium.
 
 ### Audible Range & Ultrasound Applications
-* **Infrasonic Sound:** Frequencies below $20\\text{ Hz}$ (emitted by rhinoceroses, elephants, whales, and earthquake seismic waves).
-* **Audible Range:** Frequencies between $20\\text{ Hz}$ and $20,000\\text{ Hz}$ ($20\\text{ kHz}$) for average humans.
-* **Ultrasonic Sound (Ultrasound):** Frequencies above $20,000\\text{ Hz}$ ($20\\text{ kHz}$).
-* **Key Practical Applications of Ultrasound:**
-  1. **Industrial Flaw Detection:** Transmitting ultrasound through heavy metal blocks. If a hidden internal crack or void exists, ultrasound reflects back early, alerting engineers to defective steel bridge beams.
-  2. **Medical Ultrasonography:** Non-invasive imaging of internal organs (liver, gallbladder, kidneys) and fetal monitoring during pregnancy.
-  3. **Echocardiography (ECG):** Ultrasonic reflection mapping heart chamber motion.
-  4. **SONAR (Sound Navigation and Ranging):** Measuring sea depth ($2d = v \\cdot t$) and tracking underwater icebergs or shipwrecks.
+* Infrasonic Sound: Frequencies below 20 Hz (emitted by rhinoceroses, elephants, whales, and earthquake seismic waves).
+* Audible Range: Frequencies between 20 Hz and 20,000 Hz (20 kHz) for average humans.
+* Ultrasonic Sound (Ultrasound): Frequencies above 20,000 Hz (20 kHz).
+* Key Practical Applications of Ultrasound:
+  1. Industrial Flaw Detection: Transmitting ultrasound through heavy metal blocks. If a hidden internal crack or void exists, ultrasound reflects back early, alerting engineers to defective steel bridge beams.
+  2. Medical Ultrasonography: Non-invasive imaging of internal organs (liver, gallbladder, kidneys) and fetal monitoring during pregnancy.
+  3. Echocardiography: Ultrasonic reflection mapping heart chamber motion.
+  4. SONAR (Sound Navigation and Ranging): Measuring sea depth (2d = v × t) and tracking underwater icebergs or shipwrecks.
 
 ### Human Ear Anatomy
 The human ear converts pressure vibrations in air into electrical nerve impulses sent to the brain:
-1. **Outer Ear:** Pinna collects sound waves $\\to$ Auditory canal $\\to$ reaches the delicate **Tympanic Membrane (Eardrum)**.
-2. **Middle Ear:** Three tiny bones (ossicles) named **Hammer (Malleus)**, **Anvil (Incus)**, and **Stirrup (Stapes)** amplify pressure variations by approximately 20 times.
-3. **Inner Ear:** The Stirrup transmits amplified vibrations to the oval window of the fluid-filled **Cochlea**. Hair cells inside the cochlea convert fluid pressure waves into electrical signals, which travel via the **auditory nerve** to the brain's auditory cortex.`,
+1. Outer Ear: Pinna collects sound waves -> Auditory canal -> reaches the delicate Tympanic Membrane (Eardrum).
+2. Middle Ear: Three tiny bones (ossicles) named Hammer (Malleus), Anvil (Incus), and Stirrup (Stapes) amplify pressure variations by approximately 20 times.
+3. Inner Ear: The Stirrup transmits amplified vibrations to the oval window of the fluid-filled Cochlea. Hair cells inside the cochlea convert fluid pressure waves into electrical signals, which travel via the auditory nerve to the brain's auditory cortex.`,
       keyConcepts: [
         { term: "Echo", definition: "A distinct repetition of original sound heard after reflection from an obstacle at least 17.2 m away (delay ≥ 0.1 s)." },
         { term: "Reverberation", definition: "Persistence of sound in an enclosed space caused by multiple continuous reflections." },
@@ -296,9 +415,75 @@ The human ear converts pressure vibrations in air into electrical nerve impulses
         "Remember the sequence of the 3 auditory ossicles: Hammer (Malleus) -> Anvil (Incus) -> Stirrup (Stapes)."
       ],
       questions: [
-        { id: "sc10q7", type: "num", q: "A ship sends out an ultrasound that returns from the seabed and is detected after 3.42 s. If the speed of ultrasound through sea water is 1531 m/s, what is the distance of the seabed from the ship in meters?", numAnswer: 2618, tolerance: 2, hint: "d = (v * t) / 2 = (1531 * 3.42) / 2." },
-        { id: "sc10q8", type: "num", q: "What is the minimum distance (in meters) of an obstacle from source to hear a clear echo in air at 22°C (speed 344 m/s)?", numAnswer: 17.2, tolerance: 0.1, hint: "d = 344 * 0.1 / 2." },
-        { id: "sc10q9", type: "mcq", q: "Which part of the human ear converts pressure vibrations into electrical signals?", options: ["Pinna", "Ear drum", "Cochlea", "Auditory canal"], correctOption: 2, hint: "The fluid-filled inner ear organ." }
+        {
+          id: "sc10q15",
+          type: "num",
+          q: "A ship sends out an ultrasound pulse that returns from the seabed and is detected after 3.42 s. If the speed of ultrasound through sea water is 1531 m/s, what is the depth of the seabed in meters?",
+          numAnswer: 2618,
+          tolerance: 2,
+          hint: "d = (v × t) / 2 = (1531 × 3.42) / 2.",
+          answer: "d = (v × t) / 2 = (1531 × 3.42) / 2 = 5236.02 / 2 = 2618.01 m ≈ 2618 meters."
+        },
+        {
+          id: "sc10q16",
+          type: "num",
+          q: "What is the minimum distance in meters of a reflecting obstacle from the source to hear a distinct echo in air at 22°C (speed of sound = 344 m/s)?",
+          numAnswer: 17.2,
+          tolerance: 0.1,
+          hint: "Persistence of hearing is 0.1 s: d = (344 × 0.1) / 2.",
+          answer: "Minimum distance d = (v × t) / 2 = (344 × 0.1) / 2 = 17.2 meters."
+        },
+        {
+          id: "sc10q17",
+          type: "mcq",
+          q: "Which delicate structure inside the inner ear converts fluid vibrations into electrochemical nerve impulses?",
+          options: ["Pinna", "Ear drum (tympanic membrane)", "Cochlea", "Auditory canal"],
+          correctOption: 2,
+          hint: "The snail-shaped, fluid-filled inner ear organ lined with sensory hair cells.",
+          answer: "The cochlea is the fluid-filled inner ear organ that transduces mechanical pressure oscillations into electrical impulses sent via the auditory nerve to the brain."
+        },
+        {
+          id: "sc10q18",
+          type: "mcq",
+          q: "CBSE Assertion & Reason:\nAssertion (A): Bats can catch tiny flying insects in total darkness without bumping into tree branches.\nReason (R): Bats emit high-frequency ultrasonic clicks and navigate via echolocation.",
+          options: [
+            "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
+            "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).",
+            "(A) is true, but (R) is false.",
+            "(A) is false, but (R) is true."
+          ],
+          correctOption: 0,
+          hint: "Ultrasound reflections provide precise acoustic target imaging.",
+          answer: "Both Assertion and Reason are true. Bats emit ultrasound above 20 kHz and detect returning reflected echoes to pinpoint prey location and avoid obstacles."
+        },
+        {
+          id: "sc10q19",
+          type: "short",
+          q: "Name the three tiny bones in the middle ear and state their primary mechanical function.",
+          answer: "The three bones (ossicles) are the Hammer (Malleus), Anvil (Incus), and Stirrup (Stapes). Their primary function is to amplify the pressure vibrations received from the eardrum by approximately 20 times before transmitting them to the oval window of the cochlea.",
+          hint: "Hammer, anvil, and stirrup amplify vibrations."
+        },
+        {
+          id: "sc10q20",
+          type: "mcq",
+          q: "What is reverberation, and how can it be minimized in an auditorium?",
+          options: [
+            "A single clear echo; minimized by making walls highly reflective",
+            "Excessive persistence of sound due to repeated reflections; minimized by acoustic absorbent panels and heavy curtains",
+            "Infrasonic wave absorption; minimized by cooling the hall",
+            "Complete cancellation of sound; minimized by installing loudspeakers"
+          ],
+          correctOption: 1,
+          hint: "Repeated reflections cause sound overlap; sound-absorbing materials prevent it.",
+          answer: "Reverberation is the prolonged persistence of sound due to repeated reflections. It is minimized by covering ceilings and walls with sound-absorbing materials like acoustic fiberboards and heavy draperies."
+        },
+        {
+          id: "sc10q21",
+          type: "short",
+          q: "State two distinct applications of ultrasound in modern medicine.",
+          answer: "(1) Ultrasonography: Non-invasive imaging of internal organs (liver, kidneys, uterus) and tracking fetal development. (2) Echocardiography: Using ultrasonic reflections to evaluate heart valve movements and cardiac blood flow.",
+          hint: "Ultrasound imaging and heart monitoring."
+        }
       ]
     }
   ],
@@ -314,9 +499,60 @@ The human ear converts pressure vibrations in air into electrical nerve impulses
     "Middle ear bones (hammer, anvil, stirrup) amplify vibrations; inner ear cochlea converts them to electrical nerve signals."
   ],
   ncertExercises: [
-    { id: "sc10e1", type: "short", q: "Explain why ceilings of concert halls are curved.", answer: "Ceilings are curved so that sound after reflection reaches all corners and seats of the concert hall evenly." },
-    { id: "sc10e2", type: "num", q: "A sonar device on a submarine sends out a signal and receives an echo 5 s later. Calculate the speed of sound in water if the distance of the object from the submarine is 3625 m.", numAnswer: 1450, tolerance: 5, hint: "v = 2d / t = (2 * 3625) / 5." },
-    { id: "sc10e3", type: "long", q: "Describe the structure and working of the human ear with the help of a labeled diagram." }
+    {
+      id: "sc10e1",
+      type: "short",
+      q: "Explain why the ceilings of concert halls and cinema theatres are curved.",
+      answer: "The ceilings are curved so that after reflection from the curved surfaces, sound waves are directed uniformly across all parts, rows, and corners of the hall without dead spots.",
+      hint: "Curved reflectors distribute reflected waves evenly."
+    },
+    {
+      id: "sc10e2",
+      type: "num",
+      q: "A sonar device on a submarine sends out a signal and receives an echo 5 s later. Calculate the speed of sound in water if the distance of the submerged object from the submarine is 3625 m.",
+      numAnswer: 1450,
+      tolerance: 5,
+      hint: "Speed v = 2d / t = (2 × 3625) / 5.",
+      answer: "v = (2 × d) / t = (2 × 3625 m) / 5 s = 7250 / 5 = 1450 m/s."
+    },
+    {
+      id: "sc10e3",
+      type: "short",
+      q: "State the human audible frequency range. What are frequencies below and above this range called?",
+      answer: "Human audible range is 20 Hz to 20,000 Hz (20 kHz). Frequencies below 20 Hz are called Infrasound (infrasonic); frequencies above 20,000 Hz are called Ultrasound (ultrasonic).",
+      hint: "20 Hz to 20 kHz."
+    },
+    {
+      id: "sc10e4",
+      type: "mcq",
+      q: "Which animals can communicate using infrasound frequencies below 20 Hz?",
+      options: ["Bats and dolphins", "Elephants and rhinoceroses", "Dogs and cats", "Eagles and hawks"],
+      correctOption: 1,
+      hint: "Large terrestrial mammals produce low-frequency infrasound traveling through soil and air.",
+      answer: "Elephants, rhinoceroses, and blue whales communicate using low-frequency infrasonic waves below 20 Hz."
+    },
+    {
+      id: "sc10e5",
+      type: "short",
+      q: "How does ultrasound detect invisible internal flaws and cracks inside industrial metal casting blocks?",
+      answer: "Ultrasound pulses are transmitted through the metal block. Sensitive detectors are placed on the opposite side. If there is a hidden internal crack or void, the ultrasound beam gets reflected back prematurely from the flaw surface, which shows up as an abnormal peak on the monitor.",
+      hint: "Defects reflect ultrasound beams early."
+    },
+    {
+      id: "sc10e6",
+      type: "num",
+      q: "A person standing between two tall parallel cliffs claps once. He hears the first echo after 1.5 seconds and the second echo after 2.5 seconds. If speed of sound in air is 340 m/s, calculate the total distance between the two cliffs in meters.",
+      numAnswer: 680,
+      hint: "Distance to cliff 1 = (340 × 1.5) / 2 = 255 m. Distance to cliff 2 = (340 × 2.5) / 2 = 425 m. Total distance = 255 + 425 = 680 m.",
+      answer: "Distance to Cliff 1: d₁ = (340 × 1.5) / 2 = 255 m. Distance to Cliff 2: d₂ = (340 × 2.5) / 2 = 425 m. Total distance between cliffs = d₁ + d₂ = 255 + 425 = 680 meters."
+    },
+    {
+      id: "sc10e7",
+      type: "short",
+      q: "Why is sound considered a mechanical wave while light is considered an electromagnetic wave?",
+      answer: "Sound requires a physical material medium consisting of matter particles whose mechanical vibrations transfer energy, and cannot travel through a vacuum. Light consists of oscillating electric and magnetic fields that can propagate through vacuum without any material medium.",
+      hint: "Requirement of material medium vs vacuum travel."
+    }
   ]
 };
 

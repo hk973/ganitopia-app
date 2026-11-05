@@ -111,15 +111,28 @@ const ch4: ScienceChapter = {
         {
           id: "sc4q1",
           type: "mcq",
-          q: "Under what condition is the magnitude of displacement equal to the distance covered by an object?",
+          q: "Under what condition is the magnitude of displacement strictly equal to the distance covered by an object?",
           options: [
             "When the object moves in a circular path",
-            "When the object moves along a straight line in one direction",
+            "When the object moves along a straight line in one unchanging direction",
             "When the object oscillates back and forth",
-            "They are never equal",
+            "They can never be equal",
           ],
           correctOption: 1,
           hint: "Think about any turning or deviation from a straight line.",
+        },
+        {
+          id: "sc4q1_b",
+          type: "mcq",
+          q: "Assertion (A): The displacement of a moving object can be zero even when the distance travelled by it is not zero.\nReason (R): Displacement depends solely on the initial and final positions of the object, so if a body returns to its starting point, its net displacement is zero.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Displacement is a vector change in position."
         },
         {
           id: "sc4q2",
@@ -127,21 +140,44 @@ const ch4: ScienceChapter = {
           q: "An athlete runs around a circular track of diameter 200 m in 40 s. What will be the magnitude of his displacement (in meters) at the end of 2 minutes 20 seconds?",
           numAnswer: 200,
           tolerance: 0.1,
-          hint: "Total time = 140 s. 140/40 = 3.5 rounds. At 3.5 rounds, the athlete is at the diametrically opposite point!",
+          hint: "Total time = 140 s. 140/40 = 3.5 rounds. At 3.5 rounds, the athlete is at the diametrically opposite point, so displacement = diameter = 200 m!",
+        },
+        {
+          id: "sc4q1_c",
+          type: "mcq",
+          q: "What physical quantity does the odometer installed in an automobile measure?",
+          options: ["Instantaneous speed", "Average velocity", "Total distance travelled", "Total displacement"],
+          correctOption: 2,
+          hint: "Records total ground traversed by the vehicle wheels."
+        },
+        {
+          id: "sc4q1_d",
+          type: "num",
+          q: "A student walks 3 meters due East and then 4 meters due North. What is the magnitude of the student's net displacement (in meters)?",
+          numAnswer: 5,
+          tolerance: 0.1,
+          hint: "Use Pythagoras theorem: √(3² + 4²) = √(9 + 16) = √25 = 5 meters."
         },
         {
           id: "sc4q3",
           type: "mcq",
-          q: "Which of the following statements is true for displacement?",
+          q: "Which of the following statements is scientifically true regarding displacement?",
           options: [
             "It cannot be zero",
-            "Its magnitude is always greater than the distance travelled",
+            "Its magnitude is always strictly greater than the distance travelled",
             "It is a scalar quantity",
-            "Its magnitude can be equal to or less than the distance travelled",
+            "Its magnitude is always less than or equal to the distance travelled (|displacement| ≤ distance)",
           ],
           correctOption: 3,
-          hint: "Recall |displacement| ≤ distance.",
+          hint: "Recall |displacement| ≤ distance."
         },
+        {
+          id: "sc4q1_e",
+          type: "short",
+          q: "Can the magnitude of displacement of an object ever be greater than the distance covered by it? Explain why.",
+          answer: "No, never. Displacement is the shortest straight-line path between the initial and final positions. Any curve, turn, or deviation from a straight line increases distance, so distance is always greater than or equal to displacement.",
+          hint: "Shortest distance between two points is a straight line."
+        }
       ],
     },
     {
@@ -253,6 +289,35 @@ const ch4: ScienceChapter = {
           hint: "Multiply 72 by 5/18: 72 × 5 / 18 = 4 × 5 = 20 m/s.",
         },
         {
+          id: "sc4q4_b",
+          type: "mcq",
+          q: "Assertion (A): A car moving around a circular roundabout with a constant speedometer reading of 40 km/h is undergoing accelerated motion.\nReason (R): Velocity is a vector quantity, and moving along a curve continuously changes the direction of the velocity vector even when speed is constant.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Change in direction alone constitutes acceleration."
+        },
+        {
+          id: "sc4q4_c",
+          type: "num",
+          q: "A car travels the first 30 km at a uniform speed of 40 km/h and the next 30 km at a uniform speed of 20 km/h. Calculate its average speed (in km/h).",
+          numAnswer: 26.67,
+          tolerance: 0.2,
+          hint: "Total distance = 60 km. Total time = 30/40 + 30/20 = 0.75 + 1.5 = 2.25 h. Avg speed = 60 / 2.25 = 26.67 km/h."
+        },
+        {
+          id: "sc4q4_d",
+          type: "num",
+          q: "Convert a high-speed train velocity of 90 km/h into m/s:",
+          numAnswer: 25,
+          tolerance: 0.1,
+          hint: "90 × 5 / 18 = 5 × 5 = 25 m/s."
+        },
+        {
           id: "sc4q5",
           type: "mcq",
           q: "Can a body have zero average velocity but non-zero average speed?",
@@ -265,6 +330,21 @@ const ch4: ScienceChapter = {
           correctOption: 0,
           hint: "If a body returns to its starting point, displacement = 0, so average velocity = 0, but distance > 0.",
         },
+        {
+          id: "sc4q4_e",
+          type: "mcq",
+          q: "Which of the following is strictly true for an object moving with uniform velocity along a straight line?",
+          options: ["Its acceleration is strictly zero", "Its speed must increase", "Its displacement is zero", "It moves in a circle"],
+          correctOption: 0,
+          hint: "Uniform velocity means rate of change of velocity (acceleration) = 0."
+        },
+        {
+          id: "sc4q4_f",
+          type: "short",
+          q: "Under what physical condition is the magnitude of average velocity equal to the average speed?",
+          answer: "The magnitude of average velocity equals average speed when the object travels along a straight line in a single, unchanging direction without turning back.",
+          hint: "When total distance = magnitude of displacement."
+        }
       ],
     },
     {
@@ -397,12 +477,49 @@ const ch4: ScienceChapter = {
           hint: "u = 0, a = 0.1 m/s², t = 2 min = 120 s. v = u + at = 0 + 0.1 × 120 = 12 m/s.",
         },
         {
+          id: "sc4q6_b",
+          type: "mcq",
+          q: "Assertion (A): When an object is thrown vertically upwards, at its highest peak its velocity is zero but its acceleration is 9.8 m/s² downwards.\nReason (R): Acceleration due to gravity acts continuously towards the center of Earth regardless of whether the object is moving up, down, or momentarily at rest.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Gravity never shuts off at the top of a trajectory."
+        },
+        {
           id: "sc4q7",
           type: "num",
           q: "In the above bus problem (u = 0, a = 0.1 m/s², t = 120 s), find the total distance travelled (in meters).",
           numAnswer: 720,
           tolerance: 1,
           hint: "s = ut + ½at² = 0 + ½ × 0.1 × (120)² = 0.05 × 14,400 = 720 m.",
+        },
+        {
+          id: "sc4q6_c",
+          type: "num",
+          q: "A stone is dropped from the top of a building of height 19.6 m. Calculate its final velocity just before striking the ground (g = 9.8 m/s²):",
+          numAnswer: 19.6,
+          tolerance: 0.1,
+          hint: "v² = u² + 2gh = 0 + 2 × 9.8 × 19.6 = 19.6² ⟹ v = 19.6 m/s."
+        },
+        {
+          id: "sc4q6_d",
+          type: "mcq",
+          q: "What physical quantity is determined from the slope of a Velocity-Time (v-t) graph?",
+          options: ["Speed", "Acceleration", "Distance", "Force"],
+          correctOption: 1,
+          hint: "Slope = Δv / Δt = Acceleration."
+        },
+        {
+          id: "sc4q6_e",
+          type: "mcq",
+          q: "What physical quantity is determined from the area enclosed under a Velocity-Time (v-t) graph and the time axis?",
+          options: ["Acceleration", "Force", "Magnitude of Displacement", "Momentum"],
+          correctOption: 2,
+          hint: "Area = velocity × time = displacement."
         },
         {
           id: "sc4q8",
@@ -412,8 +529,178 @@ const ch4: ScienceChapter = {
           tolerance: 1,
           hint: "u = 0, a = 4 m/s², t = 10 s. s = ut + ½at² = 0 + ½ × 4 × 100 = 200 m.",
         },
+        {
+          id: "sc4q6_f",
+          type: "num",
+          q: "A scooter moving at 54 km/h (15 m/s) is brought to rest in 5 s by applying brakes. Calculate the magnitude of deceleration (in m/s²):",
+          numAnswer: 3,
+          tolerance: 0.1,
+          hint: "a = (v - u) / t = (0 - 15) / 5 = -3 m/s². Magnitude = 3 m/s²."
+        }
       ],
     },
+    {
+      id: "s4",
+      title: "Uniform Circular Motion & Graphical Derivations of Equations of Motion",
+      content:
+        "When an object travels along a circular path with constant speed, its direction of motion changes continuously at every point. Since velocity is a vector, any change in direction means velocity is changing. Hence, uniform circular motion is an accelerated motion. In this section, we derive the three equations of motion graphically and examine the mechanics of circular paths.",
+      realWorldScenario: {
+        emoji: "🛰️",
+        title: "Whirling a Stone on a String & Satellites in Orbit",
+        description:
+          "Whirl a stone tied to a string in a circle. If the string suddenly snaps, the stone does not fly outward from the center; it shoots straight along a line tangential to the circle at that exact instant!",
+        connection:
+          "Tangential inertia carries the stone forward. The inward string tension provided the necessary centripetal force to keep curving the velocity vector.",
+      },
+      contentBlocks: [
+        "Graphical Derivation of First Equation (v = u + at): On a velocity-time graph with initial velocity u at t=0 and final velocity v at time t, the slope of the line equals acceleration: a = Change in velocity / Time = (v - u) / t. Rearranging gives: v = u + at.",
+        "Graphical Derivation of Second Equation (s = ut + ½at²): The distance s travelled equals the area under the v-t graph, which is the sum of rectangle OACD (area = u × t) and triangle ABC (area = ½ × t × (v - u)). Substituting (v - u) = at gives: s = ut + ½at².",
+        "Graphical Derivation of Third Equation (v² - u² = 2as): The area under the v-t curve can also be calculated as the area of a trapezium: s = ½ × (Sum of parallel sides) × (Height) = ½ × (u + v) × t. Substituting t = (v - u) / a gives s = (v² - u²) / (2a) ⟹ v² - u² = 2as.",
+        "Uniform Circular Motion: When an object moves in a circle of radius r with constant speed, the distance covered in one revolution is the circumference 2πr. If time taken for one complete revolution is T, the speed is given by: v = 2πr / T.",
+        "Examples of Uniform Circular Motion: The revolution of Earth around the Sun, the motion of the Moon and artificial communication satellites around Earth, a cyclist negotiating a circular track at constant speed, and the tip of the seconds hand of a watch.",
+      ],
+      keyConcepts: [
+        {
+          term: "Uniform Circular Motion",
+          definition: "The motion of an object along a circular trajectory at a constant linear speed.",
+        },
+        {
+          term: "Centripetal Acceleration",
+          definition: "The inward acceleration directed towards the center of a circular path that continuously changes the direction of the velocity vector.",
+        },
+        {
+          term: "Tangential Velocity",
+          definition: "The instantaneous linear velocity vector directed tangent to the circular path at any given point.",
+        },
+        {
+          term: "Circumference Speed Formula",
+          definition: "Linear speed in circular motion: v = 2πr / T, where r is radius and T is time period of one revolution.",
+        },
+      ],
+      formulas: [
+        {
+          label: "Circular Speed Formula",
+          latex: "v = \\frac{2\\pi r}{T}",
+          explanation: "r = radius of circular track, T = time taken for one full revolution.",
+          unit: "m/s",
+        },
+        {
+          label: "First Equation (Graphical)",
+          latex: "v = u + at",
+          explanation: "Slope of v-t curve",
+        },
+        {
+          label: "Second Equation (Graphical)",
+          latex: "s = ut + \\frac{1}{2}at^2",
+          explanation: "Area of rectangle + triangle under v-t graph",
+        },
+        {
+          label: "Third Equation (Graphical)",
+          latex: "v^2 - u^2 = 2as",
+          explanation: "Area of trapezium under v-t graph",
+        },
+      ],
+      workedExamples: [
+        {
+          title: "NCERT Example 8.8: Circular Orbit of an Artificial Satellite",
+          problem:
+            "An artificial satellite is moving in a circular orbit of radius 42,250 km. Calculate its speed (in km/s) if it takes 24 hours to revolve around the Earth.",
+          given: [
+            "Radius of circular orbit r = 42,250 km",
+            "Time period T = 24 hours = 24 × 3600 s = 86,400 seconds",
+          ],
+          formulaUsed: "v = \\frac{2\\pi r}{T}",
+          solutionSteps: [
+            "Calculate circumference of orbit: 2 × π × r = 2 × 3.1416 × 42,250 km = 265,464 km.",
+            "Calculate speed v = Distance / Time = 265,464 km / 86,400 s = 3.07 km/s.",
+          ],
+          finalAnswer: "Speed of satellite = 3.07 km/s (or ~11,060 km/h).",
+        },
+      ],
+      activities: [
+        {
+          number: "8.11",
+          title: "Demonstrating Tangential Release in Circular Motion",
+          materials: ["Piece of string (1 m)", "Small stone or eraser"],
+          steps: [
+            "Tie the stone securely to one end of the string.",
+            "Hold the other end and whirl the stone in a horizontal circle overhead at steady speed.",
+            "Release the string suddenly and observe the path of the stone.",
+          ],
+          observation: "The stone flies off instantly in a straight line along the tangent to the circular path at the exact point of release.",
+          conclusion: "In circular motion, the velocity vector at any point points along the tangent to the circle."
+        }
+      ],
+      didYouKnow: "Geostationary satellites orbit at exactly 35,786 km above Earth's equator with an orbital period of exactly 23 hours 56 minutes 4 seconds (one sidereal day). Because their orbital period matches Earth's rotation, they appear completely frozen in the sky, enabling satellite TV dishes to stay pointed at one fixed spot!",
+      examTips: [
+        "Why is uniform circular motion considered accelerated even when speed is constant? Because velocity is a vector quantity, and its DIRECTION changes continuously at every point of the circle!",
+        "When calculating satellite speed: Make sure to convert hours to seconds if speed is required in km/s (24 h = 86,400 s)."
+      ],
+      questions: [
+        {
+          id: "sc4q9_a",
+          type: "mcq",
+          q: "Assertion (A): Motion of the Moon revolving around the Earth is an accelerated motion.\nReason (R): Even though the speed of the Moon is approximately constant, the direction of its motion changes at every instant along the circular orbit.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Continuous change in direction requires centripetal acceleration."
+        },
+        {
+          id: "sc4q9_b",
+          type: "num",
+          q: "An artificial satellite moves in a circular orbit of radius 42,250 km and takes 24 hours (86,400 s) to complete one orbit. Calculate its speed in km/s (round to 2 decimal places):",
+          numAnswer: 3.07,
+          tolerance: 0.05,
+          hint: "v = 2πr / T = (2 × 3.1416 × 42,250) / 86,400 = 3.07 km/s."
+        },
+        {
+          id: "sc4q9_c",
+          type: "mcq",
+          q: "When a stone whirled in a horizontal circle on a string is released, it flies off in which direction?",
+          options: [
+            "Radially inward toward the center",
+            "Radially outward away from the center",
+            "Tangentially to the circular path at the point of release",
+            "Spiraling upward"
+          ],
+          correctOption: 2,
+          hint: "Inertia maintains the instantaneous tangential velocity."
+        },
+        {
+          id: "sc4q9_d",
+          type: "num",
+          q: "A cyclist goes around a circular track of radius 70 m in 44 seconds. What is his speed in m/s? (Use π = 22/7)",
+          numAnswer: 10,
+          tolerance: 0.1,
+          hint: "v = 2πr / T = 2 × (22/7) × 70 / 44 = 440 / 44 = 10 m/s."
+        },
+        {
+          id: "sc4q9_e",
+          type: "short",
+          q: "Why is uniform circular motion called accelerated motion even when the speed of the object remains constant?",
+          answer: "Velocity is a vector quantity having both magnitude (speed) and direction. In circular motion, although the magnitude remains constant, the direction of motion changes continuously at every point. This continuous rate of change of direction produces centripetal acceleration.",
+          hint: "Mention direction change and centripetal acceleration."
+        },
+        {
+          id: "sc4q9_f",
+          type: "mcq",
+          q: "Which of the following is NOT an example of uniform circular motion?",
+          options: [
+            "Motion of the tip of the seconds hand of a watch",
+            "A satellite orbiting Earth at constant altitude",
+            "A car accelerating down a straight highway",
+            "A stone whirled on a string at constant rpm"
+          ],
+          correctOption: 2,
+          hint: "A car accelerating down a straight road is linear motion."
+        }
+      ]
+    }
   ],
   keyPoints: [
     "Distance is scalar (total path length); displacement is vector (shortest straight line from initial to final position).",

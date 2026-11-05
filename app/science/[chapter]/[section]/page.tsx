@@ -12,7 +12,12 @@ export async function generateMetadata({ params }: { params: Promise<{ chapter: 
   const { chapter, section } = await params;
   const s = getScienceSection(Number(chapter), section);
   if (!s) return { title: "Section Not Found" };
-  return { title: s.title + " - Class 9 Science | Ganitopia", description: s.content.slice(0, 155) };
+  const cleanDescription = s.content
+    .replace(/[#*`$]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 155);
+  return { title: s.title + " - Class 9 Science | Ganitopia", description: cleanDescription };
 }
 
 export default async function ScienceSectionPage({ params }: { params: Promise<{ chapter: string; section: string }> }) {

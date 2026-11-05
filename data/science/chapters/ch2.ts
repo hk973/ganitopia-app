@@ -77,10 +77,39 @@ const ch2: ScienceChapter = {
         {
           id: "sc2q1",
           type: "mcq",
-          q: "Who expanded the cell theory by suggesting that all cells arise from pre-existing cells?",
+          q: "Who expanded the cell theory by suggesting that all cells arise from pre-existing cells ('Omnis cellula-e cellula')?",
           options: ["Robert Hooke", "Rudolf Virchow", "Matthias Schleiden", "Robert Brown"],
           correctOption: 1,
           hint: "Latin phrase 'Omnis cellula-e cellula' in 1855.",
+        },
+        {
+          id: "sc2q1_b",
+          type: "mcq",
+          q: "Assertion (A): A single cell can live independently as a complete living organism in unicellular organisms like Amoeba, Paramecium, and Chlamydomonas.\nReason (R): In unicellular organisms, all basic life processes (nutrition, respiration, excretion, reproduction) are carried out inside a single solitary cell.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "A unicellular organism has complete autonomous capability."
+        },
+        {
+          id: "sc2q1_c",
+          type: "mcq",
+          q: "Which chemical stain is routinely used when mounting temporary slides of plant cells like onion peel to make the cell wall and nucleus distinct?",
+          options: ["Safranin or Iodine solution", "Hydrochloric acid", "Concentrated alcohol", "Copper sulphate"],
+          correctOption: 0,
+          hint: "Stains cell walls pink/red or amber."
+        },
+        {
+          id: "sc2q1_d",
+          type: "mcq",
+          q: "Who was the first scientist to observe living, free-moving microorganisms in pond water with an improved microscope in 1674?",
+          options: ["Robert Hooke", "Anton van Leeuwenhoek", "Theodor Schwann", "Camillo Golgi"],
+          correctOption: 1,
+          hint: "Dutch microscopist who discovered bacteria and protozoa."
         },
         {
           id: "sc2q2",
@@ -96,7 +125,28 @@ const ch2: ScienceChapter = {
           q: "Why is a cell called the structural and functional unit of life?",
           answer:
             "It is the structural unit because every living organism is made of cells, and the functional unit because all life functions (respiration, digestion, excretion) occur at the cellular level.",
+          hint: "Structural = building block; Functional = carries out life reactions."
         },
+        {
+          id: "sc2q1_e",
+          type: "short",
+          q: "Why do we add a drop of glycerine when mounting a biological specimen on a microscope slide?",
+          answer: "Glycerine is added to prevent the biological specimen (e.g. onion peel or cheek cells) from drying out under the warm light of the microscope and to maintain clarity of view.",
+          hint: "Prevents dehydration and cracking."
+        },
+        {
+          id: "sc2q1_f",
+          type: "mcq",
+          q: "Which of the following demonstrates division of labour in human body cells?",
+          options: [
+            "All cells perform the exact same task",
+            "Muscle cells contract to cause movement, nerve cells carry impulses, and red blood cells transport oxygen",
+            "Bone cells produce digestive enzymes",
+            "Skin cells carry out photosynthesis"
+          ],
+          correctOption: 1,
+          hint: "Specialized cells perform specific distinct roles."
+        }
       ],
     },
     {
@@ -165,24 +215,78 @@ const ch2: ScienceChapter = {
         {
           id: "sc2q4",
           type: "mcq",
-          q: "What happens when an animal cell is placed in a hypotonic solution?",
+          q: "What happens when an animal cell (like a red blood cell) is placed in a hypotonic solution?",
           options: [
             "It shrinks due to exosmosis",
-            "It gains water, swells up and may burst",
+            "It gains water rapidly by endosmosis, swells up and may burst",
             "No change in size",
-            "It turns into a plant cell",
+            "It immediately builds a cellulose wall",
           ],
           correctOption: 1,
-          hint: "Animal cells lack a rigid protective cell wall.",
+          hint: "Animal cells lack a rigid protective cell wall to withstand turgor pressure.",
+        },
+        {
+          id: "sc2q4_b",
+          type: "mcq",
+          q: "Assertion (A): Plant cells can withstand much greater dilution of surrounding hypotonic medium without bursting compared to animal cells.\nReason (R): The rigid outer cell wall of plants exerts counter wall pressure equal and opposite to internal osmotic turgor pressure.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Cellulose wall prevents bursting."
+        },
+        {
+          id: "sc2q4_c",
+          type: "mcq",
+          q: "When shriveled dried raisins are soaked in plain water overnight, they swell up plump and full because of:",
+          options: ["Endosmosis", "Exosmosis", "Active transport", "Plasmolysis"],
+          correctOption: 0,
+          hint: "Water enters from high water concentration outside into the raisin."
+        },
+        {
+          id: "sc2q4_d",
+          type: "mcq",
+          q: "What is observed when fresh living grapes are kept submerged in concentrated sugar syrup for several hours?",
+          options: [
+            "Grapes swell up and burst",
+            "Water exits the grape cells by exosmosis, causing them to shrink and wrinkle",
+            "Sugar molecules enter and inflate the grapes",
+            "No change occurs"
+          ],
+          correctOption: 1,
+          hint: "Hypertonic external medium draws water out."
+        },
+        {
+          id: "sc2q4_e",
+          type: "mcq",
+          q: "When living Rheo leaf epidermal peel is boiled in water first and then mounted in concentrated salt solution, no plasmolysis is observed. Why?",
+          options: [
+            "Boiling strengthens the cell wall",
+            "Boiling kills the cells, destroying the selectively permeable membrane required for osmosis",
+            "Salt cannot dissolve in boiled water",
+            "Chloroplasts absorb all the salt"
+          ],
+          correctOption: 1,
+          hint: "Osmosis requires living, intact selectively permeable membranes."
         },
         {
           id: "sc2q5",
           type: "mcq",
-          q: "Amoeba acquires its food through the process called:",
-          options: ["Exocytosis", "Plasmolysis", "Endocytosis", "Diffusion"],
+          q: "Amoeba acquires its food from external aquatic surroundings through the process called:",
+          options: ["Exocytosis", "Plasmolysis", "Endocytosis (Phagocytosis)", "Simple diffusion"],
           correctOption: 2,
-          hint: "Flexibility of the plasma membrane engulfs food.",
+          hint: "Flexibility of the lipid-protein plasma membrane engulfs food particles."
         },
+        {
+          id: "sc2q4_f",
+          type: "short",
+          q: "State the primary difference between Diffusion and Osmosis.",
+          answer: "Diffusion is the passive movement of any substance (gases, liquids, solutes) from high to low concentration. Osmosis is the specialized diffusion of water (solvent) across a selectively permeable membrane down a water concentration gradient.",
+          hint: "Osmosis specifically requires water and a semipermeable membrane."
+        }
       ],
     },
     {
@@ -263,23 +367,182 @@ const ch2: ScienceChapter = {
           hint: "Think about the lipid-synthesizing organelle in liver tissue.",
         },
         {
+          id: "sc2q6_b",
+          type: "mcq",
+          q: "Assertion (A): Mitochondria and Chloroplasts are regarded as semi-autonomous cell organelles.\nReason (R): Both organelles possess their own circular DNA and 70S ribosomes, enabling them to synthesize some of their own vital proteins independently.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Possess independent genetic machinery (DNA + ribosomes)."
+        },
+        {
+          id: "sc2q6_c",
+          type: "mcq",
+          q: "Which cell organelle is responsible for storing, modifying, and packaging proteins received from the ER into vesicles?",
+          options: ["Golgi apparatus", "Vacuole", "Mitochondria", "Lysosome"],
+          correctOption: 0,
+          hint: "Discovered by Camillo Golgi."
+        },
+        {
+          id: "sc2q6_d",
+          type: "mcq",
+          q: "What are the functional, hereditary units of DNA present in chromosomes called?",
+          options: ["Centrosomes", "Ribosomes", "Genes", "Cristae"],
+          correctOption: 2,
+          hint: "Unit of genetic inheritance."
+        },
+        {
           id: "sc2q7",
           type: "mcq",
-          q: "ATP is synthesized in which part of the cell?",
+          q: "ATP (Adenosine Triphosphate), the universal energy currency of life, is synthesized in which organelle?",
           options: ["Mitochondria", "Ribosome", "Nucleolus", "Vacuole"],
           correctOption: 0,
-          hint: "The powerhouse of the cell.",
+          hint: "The powerhouse of the cell."
         },
         {
           id: "sc2q8",
           type: "mcq",
-          q: "Chromosomes are composed of:",
-          options: ["DNA only", "Protein only", "DNA and Protein", "RNA and Carbohydrate"],
+          q: "Chromosomes inside the nucleus are chemically composed of:",
+          options: ["DNA only", "Protein only", "DNA and Histone Proteins", "RNA and Carbohydrate"],
           correctOption: 2,
-          hint: "Histone proteins spool the DNA strands.",
+          hint: "Histone proteins spool the DNA strands into chromatin."
         },
+        {
+          id: "sc2q6_e",
+          type: "short",
+          q: "What is membrane biogenesis? Which cell organelle is responsible for it?",
+          answer: "Membrane biogenesis is the synthesis of cell membrane components (proteins and lipids). Proteins synthesized by the Rough Endoplasmic Reticulum (RER) and lipids synthesized by the Smooth Endoplasmic Reticulum (SER) are assembled to build the cell membrane.",
+          hint: "Endoplasmic Reticulum builds membranes."
+        },
+        {
+          id: "sc2q6_f",
+          type: "mcq",
+          q: "Which organelle is popularly called the 'Kitchen of the Plant Cell'?",
+          options: ["Chloroplast", "Leucoplast", "Chromoplast", "Mitochondria"],
+          correctOption: 0,
+          hint: "Contains chlorophyll for photosynthesis."
+        }
       ],
     },
+    {
+      id: "s4",
+      title: "Cell Division: Mitosis, Meiosis & Plant vs. Animal Cell Architecture",
+      content:
+        "New cells are continuously formed in organisms in order to grow, to replace old, dead and injured cells, and to form gametes required for sexual reproduction. The process by which new cells are made is called Cell Division. There are two distinct modes of cell division: Mitosis and Meiosis.",
+      realWorldScenario: {
+        emoji: "🧬",
+        title: "Healing a Knee Wound vs. The Origin of Sperm and Eggs",
+        description:
+          "When you scrape your knee, identical skin cells multiply within days to heal the scrape completely. Yet, when human gametes are formed, chromosome count must be halved from 46 down to 23 so that when sperm fuses with egg, the baby restores the normal 46 count!",
+        connection:
+          "Growth and healing happen through Mitosis (exact diploid copies), while sexual gamete formation occurs through Meiosis (reduction division halving chromosomes).",
+      },
+      contentBlocks: [
+        "1. Mitosis (Equational Division): The process of cell division by which most cells divide for growth and tissue repair. Each cell (mother cell) divides to form TWO identical daughter cells. The daughter cells have the exact same number of chromosomes as the mother cell (diploid, 2n).",
+        "2. Meiosis (Reductional Division): Specific cells of reproductive organs (testes/ovaries in animals, anthers/ovary in plants) divide to produce gametes (sperm, egg, pollen). In meiosis, a cell involves TWO consecutive divisions (Meiosis I and Meiosis II), producing FOUR new daughter cells. Each daughter cell has only HALF the number of chromosomes (haploid, n) of the mother cell.",
+        "Significance of Meiosis: During fertilization, a haploid sperm (n = 23) fuses with a haploid ovum (n = 23) to restore the species-specific diploid chromosome number (2n = 46) in the zygote, ensuring genetic constancy across generations.",
+        "Comparing Plant and Animal Cells: 1. Plant cells possess a rigid Cellulose Cell Wall; animal cells have only a plasma membrane. 2. Plant cells contain Plastids (Chloroplasts); animal cells lack plastids. 3. Plant cells have a huge central vacuole occupying 50-90% volume; animal cells have tiny, transient vacuoles. 4. Animal cells possess Centrosomes/Centrioles (which organize cell division spindle); higher plant cells lack centrioles.",
+      ],
+      keyConcepts: [
+        {
+          term: "Mitosis",
+          definition: "Equational cell division producing two genetically identical diploid daughter cells for body growth, development, and tissue repair.",
+        },
+        {
+          term: "Meiosis",
+          definition: "Reductional cell division producing four genetically distinct haploid gametes with half the chromosome number for sexual reproduction.",
+        },
+        {
+          term: "Diploid (2n)",
+          definition: "A cell possessing two complete homologous sets of chromosomes (e.g. human body cells have 46 chromosomes).",
+        },
+        {
+          term: "Haploid (n)",
+          definition: "A cell possessing a single set of unpaired chromosomes (e.g. human gametes have 23 chromosomes).",
+        },
+        {
+          term: "Cell Plate",
+          definition: "The structure that forms during cytokinesis in dividing plant cells, developing into the middle lamella and new cell walls.",
+        },
+      ],
+      formulas: [],
+      activities: [
+        {
+          number: "2.6",
+          title: "Comparative Microscopic Analysis: Onion Peel (Plant) vs Cheek Cells (Animal)",
+          materials: ["Prepared slide of onion peel", "Prepared slide of human cheek cells", "Compound microscope"],
+          steps: [
+            "Examine the onion peel slide under high power: observe cell shape, boundaries, and vacuole.",
+            "Examine the human cheek epithelial slide under high power: observe cell boundary and nucleus.",
+            "Tabulate the visible structural differences between both specimens."
+          ],
+          observation: "Onion cells show distinct rigid cell walls, rectangular outlines, and a large central vacuole pushing the nucleus to the periphery. Cheek cells have delicate irregular boundaries, no cell wall, and a centrally placed nucleus.",
+          conclusion: "Plant cells are rigid and compartmentalized by cell walls and large vacuoles, whereas animal cells are flexible without walls."
+        }
+      ],
+      didYouKnow: "In human females, all the egg cells she will ever possess are formed through meiosis before she is even born! In human males, meiosis produces over 1,000 new sperm cells every single second of adult life.",
+      examTips: [
+        "Difference between Mitosis and Meiosis: Mitosis produces 2 daughter cells with SAME chromosome count (growth); Meiosis produces 4 daughter cells with HALF chromosome count (gametes).",
+        "Plant vs Animal Cell: If asked to draw or differentiate, always highlight 3 pillars: (1) Cell wall in plants, (2) Plastids in plants, (3) Large central vacuole in plants."
+      ],
+      questions: [
+        {
+          id: "sc2q9_a",
+          type: "mcq",
+          q: "Assertion (A): Daughter cells produced during mitosis have the exact same number of chromosomes as the parent cell.\nReason (R): Mitosis is an equational division meant for somatic body growth and tissue repair.",
+          options: [
+            "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+            "Both (A) and (R) are true but (R) is NOT the correct explanation of (A)",
+            "(A) is true but (R) is false",
+            "(A) is false but (R) is true"
+          ],
+          correctOption: 0,
+          hint: "Mitosis duplicates and distributes identical chromosomes."
+        },
+        {
+          id: "sc2q9_b",
+          type: "mcq",
+          q: "A normal human somatic body cell contains 46 chromosomes (23 pairs). How many chromosomes will be present in a human sperm or ovum produced by meiosis?",
+          options: ["46 chromosomes", "23 chromosomes", "92 chromosomes", "12 chromosomes"],
+          correctOption: 1,
+          hint: "Meiosis halves the chromosome count: 46 / 2 = 23."
+        },
+        {
+          id: "sc2q9_c",
+          type: "mcq",
+          q: "Which of the following cellular features is found exclusively in plant cells and absent in animal cells?",
+          options: ["Mitochondria", "Cellulose Cell Wall and Chloroplasts", "Plasma membrane", "Ribosomes"],
+          correctOption: 1,
+          hint: "Provides structural rigidity and photosynthetic capability."
+        },
+        {
+          id: "sc2q9_d",
+          type: "mcq",
+          q: "How many daughter cells are produced at the completion of a single meiotic division cycle?",
+          options: ["2 daughter cells", "4 daughter cells", "8 daughter cells", "1 daughter cell"],
+          correctOption: 1,
+          hint: "Meiosis involves two consecutive divisions (Meiosis I and II)."
+        },
+        {
+          id: "sc2q9_e",
+          type: "short",
+          q: "Why is meiosis essential for organisms reproducing sexually?",
+          answer: "Meiosis halves the chromosome count (from diploid 2n to haploid n) in gametes. When male and female gametes fuse during fertilization (n + n), the diploid chromosome number (2n) characteristic of the species is restored in the zygote, preventing chromosome doubling.",
+          hint: "Maintains chromosome number across generations."
+        },
+        {
+          id: "sc2q9_f",
+          type: "short",
+          q: "State three prominent differences between plant cells and animal cells.",
+          answer: "(1) Plant cells have a rigid cellulose cell wall; animal cells lack cell walls. (2) Plant cells have plastids (chloroplasts); animal cells lack plastids. (3) Plant cells have a large central vacuole (50-90% volume); animal cells have small, transient vacuoles.",
+          hint: "Mention cell wall, plastids, and vacuole size."
+        }
+      ]
+    }
   ],
   keyPoints: [
     "Cell is the basic structural and functional unit of life.",

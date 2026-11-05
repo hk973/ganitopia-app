@@ -6,6 +6,8 @@ import { CheckCircle2, XCircle, Lightbulb, ChevronDown, Sparkles } from 'lucide-
 import type { ScienceQuestion } from '@/data/science/types';
 import { playSuccessChime, playWrongBoop, playPop } from '@/lib/audio/soundEffects';
 import { fireConfetti } from '@/lib/effects/confetti';
+import { QuestionVisualizer } from './QuestionVisualizer';
+import { renderInlineFormattedText } from './ScienceContentRenderer';
 
 interface Props {
   question: ScienceQuestion;
@@ -70,6 +72,15 @@ export function ScienceQuestionCard({ question: q, index, onSolved }: Props) {
         <span className="text-xs px-2 py-0.5 rounded border border-[var(--rule)] text-[var(--sci)] bg-[var(--sci-soft)] uppercase font-semibold tracking-wider">
           {q.type.toUpperCase()}
         </span>
+        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[var(--card)] border border-[var(--rule)] text-[var(--muted)] font-semibold">
+          {q.q.toLowerCase().includes('assertion')
+            ? 'CBSE Assertion & Reason'
+            : q.type === 'num'
+            ? 'NCERT Step Numericals'
+            : q.q.toLowerCase().includes('exemplar')
+            ? 'NCERT Exemplar Question'
+            : 'CBSE Board Standard'}
+        </span>
         {submitted && (
           <span className={`text-xs font-bold ml-auto flex items-center gap-1 ${correct ? 'text-[var(--ok)]' : 'text-[var(--bad)]'}`}>
             {correct ? (
@@ -85,7 +96,12 @@ export function ScienceQuestionCard({ question: q, index, onSolved }: Props) {
         )}
       </div>
 
-      <p className="mb-4 font-medium text-sm text-[var(--ink)]">{q.q}</p>
+      <div className="mb-3 font-medium text-sm text-[var(--ink)] leading-relaxed">
+        {renderInlineFormattedText(q.q)}
+      </div>
+
+      {/* Interactive Concept Visualizer for every question */}
+      <QuestionVisualizer question={q} />
 
       {/* MCQ options */}
       {q.type === 'mcq' && q.options && (
@@ -111,10 +127,10 @@ export function ScienceQuestionCard({ question: q, index, onSolved }: Props) {
                 disabled={submitted}
                 className={`text-left text-sm rounded-xl border p-3 transition-all flex items-start gap-2.5 ${style}`}
               >
-                <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-xs shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold">
                   {String.fromCharCode(65 + i)}
                 </span>
-                <span className="flex-1">{opt}</span>
+                <span className="flex-1">{renderInlineFormattedText(opt)}</span>
               </button>
             );
           })}
@@ -190,7 +206,7 @@ export function ScienceQuestionCard({ question: q, index, onSolved }: Props) {
             className="mt-3 rounded-xl bg-amber-500/10 border border-amber-500/20 p-3 text-xs text-amber-800 dark:text-amber-200"
           >
             <span className="font-bold">Hint: </span>
-            {q.hint}
+            {renderInlineFormattedText(q.hint)}
           </motion.div>
         )}
       </AnimatePresence>
@@ -202,16 +218,40 @@ export function ScienceQuestionCard({ question: q, index, onSolved }: Props) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-3 rounded-xl bg-[var(--paper)] border border-[var(--rule)] p-3 text-xs"
+            className="mt-3 rounded-2xl bg-[var(--paper)] border-2 border-[var(--sci)]/30 p-4 text-xs space-y-2 shadow-xs"
           >
-            <span className="font-bold text-[var(--sci)]">Correct Explanation: </span>
-            {q.type === 'mcq' && q.options && q.correctOption !== undefined ? (
-              <span className="text-[var(--ink)]">
-                Option {String.fromCharCode(65 + q.correctOption)}: {q.options[q.correctOption]}. {q.answer && `(${q.answer})`}
-              </span>
-            ) : (
-              <span className="text-[var(--ink)]">{q.answer}</span>
-            )}
+            <div className="flex items-center gap-1.5 font-bold text-[var(--sci)] uppercase tracking-wider text-[11px]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Step-by-Step Scientific Solution &amp; Reasoning</span>
+            </div>
+
+            <div className="text-[var(--ink)] leading-relaxed text-sm bg-[var(--sheet)] p-3 rounded-xl border border-[var(--rule)]">
+              {q.type === 'mcq' && q.options && q.correctOption !== undefined ? (
+                <div>
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">
+                    ✓ Correct Option {String.fromCharCode(65 + q.correctOption)}:{' '}
+                    {renderInlineFormattedText(q.options[q.correctOption])}
+                  </div>
+                  {q.answer && (
+                    <div className="text-xs text-[var(--muted)] mt-1.5 pt-1.5 border-t border-[var(--rule)]">
+                      <b>Scientific Explanation:</b> {renderInlineFormattedText(q.answer)}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">
+                    ✓ Correct Answer:
+                  </div>
+                  {q.answer ? renderInlineFormattedText(q.answer) : null}
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center justify-between text-[11px] text-[var(--muted)] pt-1">
+              <span>💡 Tip: Revise the key formula or activity principle above.</span>
+              <span className="font-semibold text-[var(--sci)]">Class 9 NCERT Standard</span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
