@@ -91,7 +91,7 @@ RAZORPAY_KEY_SECRET=your_secret_key
 ### Webhook Setup (for production)
 
 4. Razorpay Dashboard → Webhooks → **Add new webhook**
-5. URL: `https://ganitopia.<your-subdomain>.workers.dev/api/webhooks/razorpay` (or your custom domain)
+5. URL: `https://ganitopia-app.<your-subdomain>.workers.dev/api/webhooks/razorpay` (or your custom domain)
 6. Events: `payment.captured`, `payment.failed`
 7. Copy webhook secret → add to `.env.local`:
 
@@ -161,13 +161,13 @@ This runs:
 3. `opennextjs-cloudflare build` — transforms Next.js output for Cloudflare Workers runtime
 4. `opennextjs-cloudflare deploy` — uploads assets and deploys worker to Cloudflare Workers
 
-Your app will be live at `https://ganitopia.<your-subdomain>.workers.dev` (or your custom domain).
+Your app will be live at `https://ganitopia-app.<your-subdomain>.workers.dev` (or your custom domain).
 
 ---
 
 ## Step 8: Custom Domain
 
-1. Cloudflare Dashboard → Workers & Pages → ganitopia → Custom domains
+1. Cloudflare Dashboard → Workers & Pages → ganitopia-app → Custom domains
 2. Add your domain and follow DNS instructions
 3. Update `NEXT_PUBLIC_SITE_URL` in Cloudflare env vars
 
