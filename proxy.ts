@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { hasCourseAccess } from '@/lib/settings/purchases';
 
 // ---------- paywall helpers ----------
 
@@ -40,6 +41,27 @@ async function fetchFreeSections(req: NextRequest): Promise<number> {
 }
 
 async function checkAccess(req: NextRequest, course: 'math' | 'science'): Promise<boolean> {
+  const sessionCookie = req.cookies.get('session')?.value;
+  if (!sessionCookie) return false;
+
+  // 1. Direct local & firestore check if cookie is valid
+  try {
+    const parts = sessionCookie.split('.');
+    if (parts.length === 3) {
+      const payloadB64 = parts[1].replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(parts[1].length / 4) * 4, '=');
+      const payload = JSON.parse(atob(payloadB64));
+      if (payload.admin) return true;
+      const uid = payload.uid || payload.user_id || payload.sub;
+      if (uid) {
+        const directAccess = await hasCourseAccess(uid, course);
+        if (directAccess) return true;
+      }
+    }
+  } catch (err) {
+    // Fall through to API check
+  }
+
+  // 2. Fallback to internal API route
   try {
     const url = new URL(`/api/auth/check-access?course=${course}`, req.url);
     const res = await fetch(url.toString(), {
@@ -53,7 +75,7 @@ async function checkAccess(req: NextRequest, course: 'math' | 'science'): Promis
       return Boolean(data.access);
     }
   } catch {
-    // network error → deny access (safe default)
+    // network error → deny access
   }
   return false;
 }

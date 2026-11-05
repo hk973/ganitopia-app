@@ -12,7 +12,9 @@
     "uid": "EJid9j7XQQdhzjTtlhXfikqDhZw2",
     "amount": 100,
     "course": "bundle",
-    "status": "pending",
+    "status": "captured",
+    "razorpayPaymentId": "pay_Tw71KtlAP4LGcy",
+    "verifiedAt": "2026-11-04T13:19:38.699Z",
     "createdAt": "2026-11-04T13:18:55.855Z"
   }
 }

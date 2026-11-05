@@ -1,7 +1,10 @@
-export const revalidate = 60; // ISR — refresh every 60 seconds
+export const dynamic = 'force-dynamic';
 
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { verifySession } from '@/lib/firebase/session';
 import { getPricingSettings } from '@/lib/settings/pricing';
+import { getUserPurchases } from '@/lib/settings/purchases';
 import { PricingCards } from '@/components/pricing/PricingCards';
 import { Footer } from '@/components/layout/Footer';
 
@@ -19,6 +22,18 @@ export default async function PricingPage({
   const params = searchParams ? await searchParams : {};
   const isLocked = params?.locked === '1';
   const lockedCourse = params?.course;
+
+  // Check if current visitor already owns courses
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get('session')?.value;
+  let userPurchases = null;
+
+  if (sessionCookie) {
+    const decoded = await verifySession(sessionCookie);
+    if (decoded?.uid) {
+      userPurchases = await getUserPurchases(decoded.uid);
+    }
+  }
 
   return (
     <>
@@ -43,7 +58,7 @@ export default async function PricingPage({
             </div>
           )}
         </div>
-        <PricingCards pricing={pricing} />
+        <PricingCards pricing={pricing} userPurchases={userPurchases} />
       </main>
       <Footer />
     </>

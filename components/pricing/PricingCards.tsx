@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Sparkles, ShieldCheck, Tag, X, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
 import { GlassCard } from '@/components/shared/GlassCard';
@@ -23,6 +24,11 @@ interface AppliedCouponInfo {
   applicableCourse: 'all' | 'math' | 'science' | 'bundle';
   message?: string;
   minOrderAmount?: number;
+}
+
+interface Props {
+  pricing: PricingData;
+  userPurchases?: Record<string, any> | null;
 }
 
 function fmt(paise: number) {
@@ -59,7 +65,7 @@ const bundleFeatures = [
 
 const SUGGESTED_COUPONS = ['WELCOME10', 'SAVE200', 'SCIENCE50', 'FREE100'];
 
-export function PricingCards({ pricing }: { pricing: PricingData }) {
+export function PricingCards({ pricing, userPurchases }: Props) {
   const [couponInput, setCouponInput] = useState('');
   const [validating, setValidating] = useState(false);
   const [couponError, setCouponError] = useState('');
@@ -302,6 +308,12 @@ export function PricingCards({ pricing }: { pricing: PricingData }) {
         {plans.map((plan, i) => {
           const { finalPrice, discountAmount, isFree, applies } = calculatePlanPrice(plan.id, plan.price);
 
+          const isAlreadyOwned = Boolean(
+            userPurchases?.bundle ||
+            (plan.id === 'math' && userPurchases?.math) ||
+            (plan.id === 'science' && userPurchases?.science)
+          );
+
           return (
             <motion.div
               key={plan.id}
@@ -312,28 +324,31 @@ export function PricingCards({ pricing }: { pricing: PricingData }) {
             >
               <div
                 className={`rounded-3xl p-8 flex flex-col justify-between h-full bg-[var(--sheet)] border-2 transition-all shadow-md hover:shadow-2xl relative overflow-hidden ${
-                  plan.highlight
+                  isAlreadyOwned
+                    ? 'border-emerald-500 ring-2 ring-emerald-400/30 shadow-emerald-500/10'
+                    : plan.highlight
                     ? 'border-amber-500 shadow-amber-500/10 ring-2 ring-amber-400/30'
                     : isFree
                     ? 'border-purple-500 shadow-purple-500/10 ring-2 ring-purple-400/30'
                     : 'border-[var(--rule)]'
                 }`}
               >
-                {/* Highlight Ribbon */}
-                {plan.highlight && !isFree && (
+                {/* Already Owned Ribbon */}
+                {isAlreadyOwned ? (
+                  <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-black text-[11px] py-1.5 text-center uppercase tracking-widest shadow-sm flex items-center justify-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> Already Unlocked · Lifetime Access
+                  </div>
+                ) : plan.highlight && !isFree ? (
                   <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-[11px] py-1.5 text-center uppercase tracking-widest shadow-sm">
                     {plan.badge}
                   </div>
-                )}
-
-                {/* Free Waiver Banner */}
-                {isFree && (
+                ) : isFree ? (
                   <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-black text-[11px] py-1.5 text-center uppercase tracking-widest shadow-sm flex items-center justify-center gap-1">
                     <Sparkles className="w-3.5 h-3.5" /> 100% Free Scholarship Active
                   </div>
-                )}
+                ) : null}
 
-                <div className={plan.highlight || isFree ? 'pt-4' : ''}>
+                <div className={plan.highlight || isFree || isAlreadyOwned ? 'pt-4' : ''}>
                   {/* Title and Tagline */}
                   <div className="mb-4">
                     <h3
@@ -347,64 +362,82 @@ export function PricingCards({ pricing }: { pricing: PricingData }) {
 
                   {/* Price */}
                   <div className="my-6 pb-6 border-b border-[var(--rule)]">
-                    <div className="flex items-baseline gap-2">
-                      {isFree ? (
+                    {isAlreadyOwned ? (
+                      <div>
                         <div className="flex items-baseline gap-2">
                           <span
-                            className="text-4xl md:text-5xl font-black text-purple-600"
+                            className="text-3xl sm:text-4xl font-black text-emerald-600"
                             style={{ fontFamily: 'var(--display)' }}
                           >
-                            ₹0 FREE
-                          </span>
-                          <span className="text-lg text-[var(--muted)] line-through">
-                            {fmt(plan.price)}
+                            ✓ Active
                           </span>
                         </div>
-                      ) : applies && discountAmount > 0 ? (
-                        <div className="flex items-baseline gap-2">
-                          <span
-                            className="text-4xl md:text-5xl font-black text-emerald-600"
-                            style={{ fontFamily: 'var(--display)' }}
-                          >
-                            {fmt(finalPrice)}
-                          </span>
-                          <span className="text-lg text-[var(--muted)] line-through">
-                            {fmt(plan.price)}
-                          </span>
+                        <div className="text-xs text-emerald-600 font-bold mt-1">
+                          You already have full lifetime access to this course!
                         </div>
-                      ) : (
+                      </div>
+                    ) : (
+                      <>
                         <div className="flex items-baseline gap-2">
-                          <span
-                            className="text-4xl md:text-5xl font-black text-[var(--ink)]"
-                            style={{ fontFamily: 'var(--display)' }}
-                          >
-                            {fmt(plan.price)}
-                          </span>
-                          {plan.originalPrice && (
-                            <span className="text-lg text-[var(--muted)] line-through">
-                              {fmt(plan.originalPrice)}
-                            </span>
+                          {isFree ? (
+                            <div className="flex items-baseline gap-2">
+                              <span
+                                className="text-4xl md:text-5xl font-black text-purple-600"
+                                style={{ fontFamily: 'var(--display)' }}
+                              >
+                                ₹0 FREE
+                              </span>
+                              <span className="text-lg text-[var(--muted)] line-through">
+                                {fmt(plan.price)}
+                              </span>
+                            </div>
+                          ) : applies && discountAmount > 0 ? (
+                            <div className="flex items-baseline gap-2">
+                              <span
+                                className="text-4xl md:text-5xl font-black text-emerald-600"
+                                style={{ fontFamily: 'var(--display)' }}
+                              >
+                                {fmt(finalPrice)}
+                              </span>
+                              <span className="text-lg text-[var(--muted)] line-through">
+                                {fmt(plan.price)}
+                              </span>
+                            </div>
+                          ) : (
+                            <div className="flex items-baseline gap-2">
+                              <span
+                                className="text-4xl md:text-5xl font-black text-[var(--ink)]"
+                                style={{ fontFamily: 'var(--display)' }}
+                              >
+                                {fmt(plan.price)}
+                              </span>
+                              {plan.originalPrice && (
+                                <span className="text-lg text-[var(--muted)] line-through">
+                                  {fmt(plan.originalPrice)}
+                                </span>
+                              )}
+                            </div>
                           )}
                         </div>
-                      )}
-                    </div>
 
-                    {/* Savings pill if coupon applies */}
-                    {applies && discountAmount > 0 && !isFree && (
-                      <div className="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-bold border border-emerald-500/20">
-                        🎉 You save {fmt(discountAmount)} with {appliedCoupon?.code}!
-                      </div>
+                        {/* Savings pill if coupon applies */}
+                        {applies && discountAmount > 0 && !isFree && (
+                          <div className="inline-block mt-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-bold border border-emerald-500/20">
+                            🎉 You save {fmt(discountAmount)} with {appliedCoupon?.code}!
+                          </div>
+                        )}
+
+                        {appliedCoupon && !applies && (
+                          <div className="text-[11px] text-[var(--muted)] mt-2 italic">
+                            (Coupon applies to {appliedCoupon.applicableCourse === 'bundle' ? 'Combo Bundle' : appliedCoupon.applicableCourse})
+                          </div>
+                        )}
+
+                        <div className="text-xs text-[var(--muted)] mt-1.5">
+                          {isFree ? '100% Free Full Lifetime Access' : 'One-time payment · No subscriptions'}
+                        </div>
+                      </>
                     )}
-
-                    {appliedCoupon && !applies && (
-                      <div className="text-[11px] text-[var(--muted)] mt-2 italic">
-                        (Coupon applies to {appliedCoupon.applicableCourse === 'bundle' ? 'Combo Bundle' : appliedCoupon.applicableCourse})
-                      </div>
-                    )}
-
-                    <div className="text-xs text-[var(--muted)] mt-1.5">
-                      {isFree ? '100% Free Full Lifetime Access' : 'One-time payment · No subscriptions'}
-                    </div>
                   </div>
 
                   {/* Features list */}
@@ -425,13 +458,28 @@ export function PricingCards({ pricing }: { pricing: PricingData }) {
 
                 {/* Action Button */}
                 <div className="pt-2">
-                  <RazorpayCheckout
-                    course={plan.id}
-                    label={plan.highlight ? 'Get Complete Combo Bundle &rarr;' : `Unlock ${plan.label} &rarr;`}
-                    color={plan.highlight ? '#d97706' : plan.color}
-                    appliedCoupon={applies && appliedCoupon ? appliedCoupon.code : undefined}
-                    isFree={isFree}
-                  />
+                  {isAlreadyOwned ? (
+                    <Link href={plan.id === 'bundle' ? '/dashboard' : `/${plan.id}`}>
+                      <SkeuoButton
+                        variant="primary"
+                        size="lg"
+                        className="w-full justify-center !bg-emerald-600 hover:!bg-emerald-700 text-white font-bold"
+                      >
+                        <span className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-white" />
+                          {plan.id === 'bundle' ? 'Go to Dashboard &rarr;' : `Open ${plan.label} Lessons &rarr;`}
+                        </span>
+                      </SkeuoButton>
+                    </Link>
+                  ) : (
+                    <RazorpayCheckout
+                      course={plan.id}
+                      label={plan.highlight ? 'Get Complete Combo Bundle &rarr;' : `Unlock ${plan.label} &rarr;`}
+                      color={plan.highlight ? '#d97706' : plan.color}
+                      appliedCoupon={applies && appliedCoupon ? appliedCoupon.code : undefined}
+                      isFree={isFree}
+                    />
+                  )}
                 </div>
               </div>
             </motion.div>

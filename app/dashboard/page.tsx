@@ -4,45 +4,68 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getAdminDb, isAdminConfigured } from '@/lib/firebase/admin';
 import { verifySession } from '@/lib/firebase/session';
+import { getUserPurchases, getUserOrders } from '@/lib/settings/purchases';
 import { StudentDashboard } from '@/components/student/StudentDashboard';
 
-async function getStudentData(uid: string) {
-  const db = getAdminDb();
-  const [userDoc, purchaseDoc, progressDoc] = await Promise.all([
-    db.collection('users').doc(uid).get(),
-    db.collection('purchases').doc(uid).get(),
-    db.collection('studentProgress').doc(uid).get(),
-  ]);
-  return {
-    user: userDoc.data() ?? null,
-    purchases: purchaseDoc.data() ?? null,
-    progress: progressDoc.data() ?? null,
-  };
-}
-
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ payment?: string; course?: string }>;
+}) {
   const cookieStore = await cookies();
   const sessionCookie = cookieStore.get('session')?.value;
 
-  if (!sessionCookie) redirect('/login');
+  if (!sessionCookie) redirect('/login?next=/dashboard');
 
   const decoded = await verifySession(sessionCookie);
-  if (!decoded || !decoded.uid) redirect('/login');
+  if (!decoded || !decoded.uid) redirect('/login?next=/dashboard');
 
-  let user = null;
-  let purchases = null;
-  let progress = null;
+  const params = searchParams ? await searchParams : {};
+  const paymentSuccess = params?.payment === 'success';
+
+  // 1. Fetch purchases and orders from unified storage (Firestore + persistent JSON)
+  const purchases = await getUserPurchases(decoded.uid);
+  const orders = await getUserOrders(decoded.uid);
+
+  // 2. Fetch user profile and progress
+  let user: Record<string, any> | null = null;
+  let progress: Record<string, any> | null = null;
 
   if (isAdminConfigured()) {
     try {
-      const data = await getStudentData(decoded.uid);
-      user = data.user;
-      purchases = data.purchases;
-      progress = data.progress;
+      const db = getAdminDb();
+      const [userDoc, progressDoc] = await Promise.all([
+        db.collection('users').doc(decoded.uid).get(),
+        db.collection('studentProgress').doc(decoded.uid).get(),
+      ]);
+      if (userDoc.exists) user = userDoc.data() ?? null;
+      if (progressDoc.exists) progress = progressDoc.data() ?? null;
     } catch (e) {
-      console.warn('Failed to load student data from Firestore:', e);
+      console.warn('Failed to load student Firestore doc:', e);
     }
   }
 
-  return <StudentDashboard uid={decoded.uid} user={user} purchases={purchases} progress={progress} />;
+  // Fallback user metadata from session token
+  if (!user) {
+    const rawName = decoded.email ? decoded.email.split('@')[0] : 'Student';
+    const formattedName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+    user = {
+      uid: decoded.uid,
+      email: decoded.email || '',
+      name: formattedName,
+      class: '9',
+      paymentStatus: purchases && Object.keys(purchases).length > 0 ? 'paid' : 'unpaid',
+    };
+  }
+
+  return (
+    <StudentDashboard
+      uid={decoded.uid}
+      user={user}
+      purchases={purchases}
+      progress={progress}
+      orders={orders}
+      paymentSuccess={paymentSuccess}
+    />
+  );
 }

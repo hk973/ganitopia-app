@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'node:crypto';
 import { getAdminDb, isAdminConfigured } from '@/lib/firebase/admin';
 import { verifySession } from '@/lib/firebase/session';
-import { getPendingOrder, recordPurchase } from '@/lib/settings/purchases';
+import { getPendingOrder, recordPurchase, updateOrderStatus } from '@/lib/settings/purchases';
 import { incrementCouponUsage } from '@/lib/settings/coupons';
 
 export async function POST(request: NextRequest) {
@@ -82,6 +82,15 @@ export async function POST(request: NextRequest) {
       razorpayPaymentId: razorpay_payment_id,
       razorpayOrderId: razorpay_order_id,
       amount,
+    });
+
+    // 4. Update local order record to captured
+    updateOrderStatus(razorpay_order_id, 'captured', {
+      uid,
+      course,
+      amount,
+      razorpayPaymentId: razorpay_payment_id,
+      verifiedAt: new Date().toISOString(),
     });
 
     // 4. Increment coupon usage if a coupon was used

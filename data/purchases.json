@@ -5,6 +5,20 @@
       "razorpayPaymentId": "pay_Tw71KtlAP4LGcy",
       "razorpayOrderId": "order_Tw70r34xwM5mS8",
       "amount": 100
+    },
+    "math": {
+      "purchasedAt": "2026-11-04T13:19:38.699Z",
+      "razorpayPaymentId": "pay_Tw71KtlAP4LGcy",
+      "razorpayOrderId": "order_Tw70r34xwM5mS8",
+      "amount": 100,
+      "viaBundle": true
+    },
+    "science": {
+      "purchasedAt": "2026-11-04T13:19:38.699Z",
+      "razorpayPaymentId": "pay_Tw71KtlAP4LGcy",
+      "razorpayOrderId": "order_Tw70r34xwM5mS8",
+      "amount": 100,
+      "viaBundle": true
     }
   }
 }
