@@ -37,6 +37,7 @@ yarn-error.log*
 # Cloudflare
 .open-next
 .dev.vars
+.wrangler
 cloudflare-env.d.ts
 
 # Scripts output

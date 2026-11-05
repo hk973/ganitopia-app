@@ -31,7 +31,8 @@ if (typeof window !== "undefined") {
   // SSR: initialize without client-side features
   app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
   auth = getAuth(app);
-  db = getFirestore(app);
+  // Do not initialize client Firestore on the server (avoids protobufjs codegen in Cloudflare Worker)
+  db = null as unknown as Firestore;
 }
 
 export { app, auth, db, analytics, firebaseConfig };

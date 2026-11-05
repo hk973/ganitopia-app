@@ -11,6 +11,7 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "postinstall": "node scripts/patch-protobuf.js",
     "setup-admin": "ts-node --project tsconfig.scripts.json scripts/setup-admin.ts"
   },
   "dependencies": {
